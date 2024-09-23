@@ -1,10 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.colecaoautiagenda.controllers.TelaPrincipal">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="391.0" style="-fx-background-color: #E8FDFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.colecaoautiagenda.controllers.Principal">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <Button fx:id="botaoCadastrarUsuario" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadastre-se" />
+      <ImageView fitHeight="350.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+         <image>
+            <Image url="@icones/logoautismo.png" />
+         </image>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </ImageView>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-Vindo ao" textAlignment="CENTER" wrappingWidth="151.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Tahoma" size="24.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="70.0" />
+         </GridPane.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AutiAgenda" textAlignment="CENTER" wrappingWidth="141.5810546875" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <font>
+            <Font name="Tahoma Bold" size="24.0" />
+         </font>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Text>
+      <Button fx:id="botaoEntrar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#botaoIrParaTelaDeLogin" prefHeight="44.0" prefWidth="178.0" style="-fx-background-color: #03435F; -fx-background-radius: 15px;" text="Entrar" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoCadastreSe" mnemonicParsing="false" onAction="#botaoIrParaTelaDeCadastroUsuario" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #33888D; -fx-background-radius: 15px;" text="Cadastre-se" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
    </children>
-</VBox>
+</GridPane>
