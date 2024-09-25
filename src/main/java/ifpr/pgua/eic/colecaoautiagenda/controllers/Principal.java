@@ -21,5 +21,10 @@ public class Principal {
     @FXML
     void botaoIrParaTelaDeLogin(ActionEvent event) {
         App.pushScreen("TELALOGIN");
+
+    //botaoIrParaTelaDeCadastroResponsavel era aqui
     }
 }
+
+
+

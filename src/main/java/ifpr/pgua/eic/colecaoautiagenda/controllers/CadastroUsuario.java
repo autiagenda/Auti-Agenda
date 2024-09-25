@@ -1,5 +1,6 @@
 package ifpr.pgua.eic.colecaoautiagenda.controllers;
 
+import ifpr.pgua.eic.colecaoautiagenda.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -53,5 +54,10 @@ public class CadastroUsuario {
     @FXML
     void radioButtonSim(ActionEvent event) {
 
+    }
+
+    @FXML
+    void botaoIrParaTelaDeCadastroResponsavel(ActionEvent event) { //fazer a transição de telas
+        App.pushScreen("CADASTRORESPONSAVEL");
     }
 }

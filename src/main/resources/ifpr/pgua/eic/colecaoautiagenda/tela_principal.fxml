@@ -20,42 +20,45 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fitHeight="350.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+      <ImageView fitHeight="236.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
          <image>
             <Image url="@icones/logoautismo.png" />
          </image>
          <GridPane.margin>
-            <Insets />
+            <Insets top="40.0" />
          </GridPane.margin>
       </ImageView>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-Vindo ao" textAlignment="CENTER" wrappingWidth="151.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-Vindo ao" textAlignment="CENTER" wrappingWidth="233.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
-            <Font name="Tahoma" size="24.0" />
+            <Font name="Tahoma" size="30.0" />
          </font>
          <GridPane.margin>
-            <Insets top="70.0" />
+            <Insets top="95.0" />
          </GridPane.margin>
       </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AutiAgenda" textAlignment="CENTER" wrappingWidth="141.5810546875" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AutiAgenda" textAlignment="CENTER" wrappingWidth="212.5810546875" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
-            <Font name="Tahoma Bold" size="24.0" />
+            <Font name="Tahoma Bold" size="30.0" />
          </font>
          <GridPane.margin>
-            <Insets />
+            <Insets top="55.0" />
          </GridPane.margin>
       </Text>
-      <Button fx:id="botaoEntrar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#botaoIrParaTelaDeLogin" prefHeight="44.0" prefWidth="178.0" style="-fx-background-color: #03435F; -fx-background-radius: 15px;" text="Entrar" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <Button fx:id="botaoEntrar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#botaoIrParaTelaDeLogin" prefHeight="50.0" prefWidth="208.0" style="-fx-background-color: #03435F; -fx-background-radius: 15px;" text="Entrar" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets />
+            <Insets top="40.0" />
          </GridPane.margin>
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="botaoCadastreSe" mnemonicParsing="false" onAction="#botaoIrParaTelaDeCadastroUsuario" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #33888D; -fx-background-radius: 15px;" text="Cadastre-se" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Button fx:id="botaoCadastreSe" mnemonicParsing="false" onAction="#botaoIrParaTelaDeCadastroUsuario" prefHeight="50.0" prefWidth="208.0" style="-fx-background-color: #33888D; -fx-background-radius: 15px;" text="Cadastre-se" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
+         <GridPane.margin>
+            <Insets top="60.0" />
+         </GridPane.margin>
       </Button>
    </children>
 </GridPane>
