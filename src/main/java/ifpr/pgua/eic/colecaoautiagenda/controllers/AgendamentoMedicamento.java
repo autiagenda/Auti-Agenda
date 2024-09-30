@@ -1,19 +1,13 @@
 package ifpr.pgua.eic.colecaoautiagenda.controllers;
 
+import ifpr.pgua.eic.colecaoautiagenda.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class AgendamentoMedicamento {
     
-    @FXML
-    private Button botaoAgendar;
-
-    @FXML
-    private Button botaoFoto;
-
     @FXML
     private DatePicker labelData;
 
@@ -37,22 +31,7 @@ public class AgendamentoMedicamento {
     }
 
     @FXML
-    void labelDataMedicamento(ActionEvent event) {
-
-    }
-
-    @FXML
-    void labelDetalhesMedicamento(ActionEvent event) {
-
-    }
-
-    @FXML
-    void labelHorarioMedicamento(ActionEvent event) {
-
-    }
-
-    @FXML
-    void labelTituloMedicamento(ActionEvent event) {
-
+    void voltar(ActionEvent event) {
+        App.pushScreen("MENUPRINCIPAL");
     }
 }

@@ -1,32 +1,38 @@
 package ifpr.pgua.eic.colecaoautiagenda.controllers;
 
+import ifpr.pgua.eic.colecaoautiagenda.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
 public class MenuPrincipal {
     
   @FXML
-  private Button botaoMedicamento;
-
-  @FXML
-  private Button botaoRotina;
-
-  @FXML
-  private Button botaoTerapia;
-
-  @FXML
-  void botaoSair(ActionEvent event) {
-
+  void botaoMedicamentos1(ActionEvent event) {
+    App.pushScreen("AGENDAMENTOMEDICAMENTO");
   }
 
   @FXML
-  void botaoTransicaoListas(ActionEvent event) {
-
+  void botaoMedicamentos2(ActionEvent event) {
+    App.pushScreen("AGENDAMENTOMEDICAMENTO");
   }
 
   @FXML
-  void botaoTransicaoMenu(ActionEvent event) {
+  void botaoRotinaDiaria1(ActionEvent event) {
+    App.pushScreen("AGENDAMENTOROTINADIARIA");
+  }
 
+  @FXML
+  void botaoRotinaDiaria2(ActionEvent event) {
+    App.pushScreen("AGENDAMENTOROTINADIARIA");
+  }
+
+  @FXML
+  void botaoTerapias1(ActionEvent event) {
+    App.pushScreen("AGENDAMENTOTERAPIA");
+  }
+
+  @FXML
+  void botaoTerapias2(ActionEvent event) {
+    App.pushScreen("AGENDAMENTOTERAPIA");
   }
 }

@@ -16,11 +16,11 @@ public class RepositorioUsuario {
 
     public Resultado cadastrarUsuario(String nome, String email, String senha) {
         if (nome.isEmpty() || nome.isBlank()) {
-            return Resultado.erro("O nome de usuário escolhido é inválido... Tente outra");
+            return Resultado.erro("O nome de usuário escolhido é inválido... Tente outro");
         }
 
         if (email.isEmpty() || email.isBlank()) {
-            return Resultado.erro("O email escolhido é inválido... Tente outra");
+            return Resultado.erro("O email escolhido é inválido... Tente outro");
         }
 
         if (senha.isEmpty() || senha.isBlank()) {

@@ -2,6 +2,7 @@ package ifpr.pgua.eic.colecaoautiagenda.controllers;
 
 import com.github.hugoperlin.results.Resultado;
 
+import ifpr.pgua.eic.colecaoautiagenda.App;
 import ifpr.pgua.eic.colecaoautiagenda.models.Usuario;
 import ifpr.pgua.eic.colecaoautiagenda.repositories.RepositorioUsuario;
 import javafx.event.ActionEvent;
@@ -36,6 +37,7 @@ public class Login {
     
             if (resultadoBusca != null && resultadoBusca.foiSucesso()) {
                 Usuario usuarioAutenticado = (Usuario) resultadoBusca.comoSucesso().getObj();
+                App.pushScreen("MENUPRINCIPAL");
             } else {
                 exibirAlerta("ERRO", resultadoBusca != null ? resultadoBusca.getMsg() : "Ocorreu um erro na busca do usuário...");
             }

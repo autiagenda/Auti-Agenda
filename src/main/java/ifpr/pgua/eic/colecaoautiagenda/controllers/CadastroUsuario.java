@@ -58,11 +58,11 @@ public class CadastroUsuario {
 
     @FXML
     void radioButtonNao(ActionEvent event) {
-
+        //Não realiza nenhuma ação mesmo...
     }
 
     @FXML
     void radioButtonSim(ActionEvent event) {
-        App.pushScreen("CADASTRORESPONSAVEL");
+        App.pushScreen("CADASTRORESPONSAVEL");  //arrumar para pegar o id do responsável também além do cadastro simples
     }
 }
