@@ -6,5 +6,5 @@ import ifpr.pgua.eic.colecaoautiagenda.models.Usuario;
 
 public interface UsuarioDAO {
     Resultado criar(Usuario usuario);
-    Resultado buscar(String nome, String email, String senha);
+    Resultado buscar(String email, String senha);
 }

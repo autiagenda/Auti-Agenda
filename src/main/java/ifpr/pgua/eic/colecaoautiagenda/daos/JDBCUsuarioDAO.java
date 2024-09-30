@@ -44,22 +44,20 @@ public class JDBCUsuarioDAO implements UsuarioDAO{
     }
 
     @Override
-    public Resultado buscar(String nome, String email, String senha) {
+    public Resultado buscar(String email, String senha) {
         try (Connection con = fabrica.getConnection()) {
-            String sql = "SELECT * FROM tb_usuario WHERE nome=? AND email=? AND senha=?";
+            String sql = "SELECT * FROM tb_usuario WHERE email=? AND senha=?";
             try (PreparedStatement pstm = con.prepareStatement(sql)) {
-                pstm.setString(1, nome);
-                pstm.setString(2, email);  
-                pstm.setString(3, senha);
+                pstm.setString(1, email);  
+                pstm.setString(2, senha);
 
                 try (ResultSet rs = pstm.executeQuery()) {
                     if (rs.next()) {
-                        String usuarioEncontrado = rs.getString("nome");
                         String emailEncontrado = rs.getString("email");
                         String senhaEncontrada = rs.getString("senha");
                         int id = rs.getInt("id");
 
-                        Usuario usuarioEncontradoObj = new Usuario(id, usuarioEncontrado, emailEncontrado, senhaEncontrada);
+                        Usuario usuarioEncontradoObj = new Usuario(emailEncontrado, senhaEncontrada);
                         usuarioEncontradoObj.setId(id);
 
                         return Resultado.sucesso("Usuário encontrado com sucesso!!!", usuarioEncontradoObj);

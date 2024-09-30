@@ -41,7 +41,7 @@ public class CadastroUsuario {
 
         Alert alert;
         if (resultadoCadastro != null && resultadoCadastro.foiSucesso()) {
-            Resultado resultadoAutenticacao = repositorio.buscarUsuario(nome, email, senha);
+            Resultado resultadoAutenticacao = repositorio.buscarUsuario(email, senha);
 
             if (resultadoAutenticacao != null && resultadoAutenticacao.foiSucesso()) {
                 alert = new Alert(AlertType.INFORMATION, "Usuário cadastrado com sucesso!");
@@ -63,11 +63,6 @@ public class CadastroUsuario {
 
     @FXML
     void radioButtonSim(ActionEvent event) {
-
-    }
-
-    @FXML
-    void botaoIrParaTelaDeCadastroResponsavel(ActionEvent event) { //fazer a transição de telas
         App.pushScreen("CADASTRORESPONSAVEL");
     }
 }

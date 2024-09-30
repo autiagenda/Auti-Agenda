@@ -6,51 +6,27 @@ import javafx.scene.control.Button;
 
 public class MenuPrincipal {
     
-    @FXML
-    private Button botaoMedicamento;
+  @FXML
+  private Button botaoMedicamento;
 
-    @FXML
-    private Button botaoRotina;
+  @FXML
+  private Button botaoRotina;
 
-    @FXML
-    private Button botaoTerapia;
+  @FXML
+  private Button botaoTerapia;
 
-   // @FXML
-   // private BottomNavigationButton sair;
+  @FXML
+  void botaoSair(ActionEvent event) {
 
-   // @FXML
-   // private BottomNavigationButton transicaoListas;
+  }
 
-  //  @FXML
-  //  private BottomNavigationButton transicaoMenu;
+  @FXML
+  void botaoTransicaoListas(ActionEvent event) {
 
-    @FXML
-    void botaoAbrirAgendamentoMedicamento(ActionEvent event) {
+  }
 
-    }
+  @FXML
+  void botaoTransicaoMenu(ActionEvent event) {
 
-    @FXML
-    void botaoAbrirAgendamentoRotinaDiaria(ActionEvent event) {
-
-    }
-
-    @FXML
-    void botaoAbrirAgendamentoTerapia(ActionEvent event) {
-
-    }
-
-    @FXML
-    void botaoSair(ActionEvent event) {
-
-    }
-
-    @FXML
-    void botaoTransicaoListas(ActionEvent event) {
-
-    }
-
-    @FXML
-    void botaoTransicaoMenu(ActionEvent event) {
-
-    }
+  }
 }

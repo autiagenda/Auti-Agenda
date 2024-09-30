@@ -4,3 +4,9 @@ CREATE TABLE IF NOT EXISTS tb_usuario (
     email VARCHAR(150) NOT NULL,
     senha VARCHAR(150) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS tb_responsavel (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(150) NOT NULL,
+    email VARCHAR(150) NOT NULL
+);

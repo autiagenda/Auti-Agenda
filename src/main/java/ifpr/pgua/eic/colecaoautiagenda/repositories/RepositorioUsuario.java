@@ -31,8 +31,8 @@ public class RepositorioUsuario {
         return dao.criar(novoUsuario);
         }
 
-        public Resultado buscarUsuario(String nome, String email, String senha) {
-            return dao.buscar(nome, email, senha);
+        public Resultado buscarUsuario(String email, String senha) {
+            return dao.buscar(email, senha);
         }
     
 }

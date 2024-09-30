@@ -5,8 +5,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="380.0" style="-fx-background-color: #E8FDFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.colecaoautiagenda.controllers.MenuPrincipalListar">
    <children>
-      <Button fx:id="botaoRotina" layoutX="48.0" layoutY="133.0" mnemonicParsing="false" onAction="#botaoListarRotinaDiaria" prefHeight="136.0" prefWidth="284.0" text="Listar Rotina Diária" />
-      <Button fx:id="botaoTerapias" layoutX="48.0" layoutY="284.0" mnemonicParsing="false" onAction="#botaoListarTerapias" prefHeight="136.0" prefWidth="284.0" text="Listar Terapias" />
-      <Button fx:id="botaoMedicamentos" layoutX="48.0" layoutY="441.0" mnemonicParsing="false" onAction="#botaoListarMedicamentos" prefHeight="136.0" prefWidth="284.0" text="Listar Medicamentos" />
+      <Button layoutX="48.0" layoutY="133.0" mnemonicParsing="false" onAction="#botaoListarRotinaDiaria" prefHeight="136.0" prefWidth="284.0" text="Listar Rotina Diária" />
+      <Button layoutX="48.0" layoutY="284.0" mnemonicParsing="false" onAction="#botaoListarTerapias" prefHeight="136.0" prefWidth="284.0" text="Listar Terapias" />
+      <Button layoutX="48.0" layoutY="441.0" mnemonicParsing="false" onAction="#botaoListarMedicamentos" prefHeight="136.0" prefWidth="284.0" text="Listar Medicamentos" />
    </children>
 </AnchorPane>
