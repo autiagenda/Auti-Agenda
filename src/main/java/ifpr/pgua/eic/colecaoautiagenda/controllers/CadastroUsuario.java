@@ -1,49 +1,59 @@
 package ifpr.pgua.eic.colecaoautiagenda.controllers;
 
+import com.github.hugoperlin.results.Resultado;
+
 import ifpr.pgua.eic.colecaoautiagenda.App;
+import ifpr.pgua.eic.colecaoautiagenda.repositories.RepositorioUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class CadastroUsuario {
     @FXML
-    private Button botaoCadrastre;
+    private TextField labelEmailUsuario;
 
     @FXML
-    private TextField labelEmail;
+    private TextField labelNomeUsuario;
 
     @FXML
-    private TextField labelNome;
+    private TextField labelSenhaUsuario;
 
-    @FXML
-    private TextField labelsenha;
+    private RepositorioUsuario repositorio;
 
-    @FXML
-    private RadioButton radioNao;
-
-    @FXML
-    private RadioButton radioSim;
-
+    public CadastroUsuario(RepositorioUsuario repositorio) {
+        this.repositorio = repositorio;
+    }
+    
     @FXML
     void botaoCadastreSeUsuario(ActionEvent event) {
-       
-    }
+        String nome = labelNomeUsuario.getText();
+        String email = labelEmailUsuario.getText();
+        String senha = labelSenhaUsuario.getText();
 
-    @FXML
-    void labelEmailUsuario(ActionEvent event) {
+        if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+            new Alert(AlertType.ERROR, "Por favor, preencha todos os campos!").showAndWait();
+            return;
+        }
 
-    }
+        Resultado resultadoCadastro = repositorio.cadastrarUsuario(nome, email, senha);
 
-    @FXML
-    void labelNomeUsuario(ActionEvent event) {
+        Alert alert;
+        if (resultadoCadastro != null && resultadoCadastro.foiSucesso()) {
+            Resultado resultadoAutenticacao = repositorio.buscarUsuario(nome, email, senha);
 
-    }
-
-    @FXML
-    void labelSenhaUsuario(ActionEvent event) {
-
+            if (resultadoAutenticacao != null && resultadoAutenticacao.foiSucesso()) {
+                alert = new Alert(AlertType.INFORMATION, "Usuário cadastrado com sucesso!");
+            } else {
+                alert = new Alert(AlertType.ERROR, "Erro após o cadastro! Tente novamente");
+            }
+        } else {
+            String mensagemErro = resultadoCadastro != null ? resultadoCadastro.getMsg() : "Erro ao cadastrar um novo usuário!";
+            alert = new Alert(AlertType.ERROR, mensagemErro);
+        }
+        App.popScreen();  
+        alert.showAndWait();
     }
 
     @FXML
