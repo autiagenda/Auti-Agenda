@@ -5,6 +5,9 @@ import ifpr.pgua.eic.colecaoautiagenda.controllers.AgendamentoTarefaDiaria;
 import ifpr.pgua.eic.colecaoautiagenda.controllers.AgendamentoTerapia;
 import ifpr.pgua.eic.colecaoautiagenda.controllers.CadastroResponsavel;
 import ifpr.pgua.eic.colecaoautiagenda.controllers.CadastroUsuario;
+import ifpr.pgua.eic.colecaoautiagenda.controllers.ListarMedicamentos;
+import ifpr.pgua.eic.colecaoautiagenda.controllers.ListarTarefasDiarias;
+import ifpr.pgua.eic.colecaoautiagenda.controllers.ListarTerapias;
 import ifpr.pgua.eic.colecaoautiagenda.controllers.Login;
 import ifpr.pgua.eic.colecaoautiagenda.controllers.MenuPrincipal;
 import ifpr.pgua.eic.colecaoautiagenda.controllers.MenuPrincipalListar;
@@ -79,5 +82,11 @@ public class App extends BaseAppNavigator {
                 registraTela("AGENDAMENTOMEDICAMENTO", new ScreenRegistryFXML(App.class, "tela_agendamento_medicamento.fxml", o -> new AgendamentoMedicamento(repositorioMedicamento)));
 
                 registraTela("MENUPRINCIPALLISTAR", new ScreenRegistryFXML(App.class, "tela_menu_principal_listar.fxml", o -> new MenuPrincipalListar()));
+
+                registraTela("LISTARMEDICAMENTOS", new ScreenRegistryFXML(App.class, "tela_listar_medicamento.fxml", o -> new ListarMedicamentos()));
+                
+                registraTela("LISTARROTINADIARIA", new ScreenRegistryFXML(App.class, "tela_listar_rotina_diaria.fxml", o -> new ListarTarefasDiarias()));
+                
+                registraTela("LISTARTERAPIAS", new ScreenRegistryFXML(App.class, "tela_listar_terapia.fxml", o -> new ListarTerapias()));
         }
 }

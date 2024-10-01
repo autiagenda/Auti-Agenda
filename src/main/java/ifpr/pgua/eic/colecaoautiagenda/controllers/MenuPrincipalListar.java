@@ -9,17 +9,17 @@ public class MenuPrincipalListar {
     
     @FXML
     void botaoListarMedicamentos(ActionEvent event) {
-
+        App.pushScreen("LISTARMEDICAMENTOS");
     }
 
     @FXML
     void botaoListarRotinaDiaria(ActionEvent event) {
-
+        App.pushScreen("LISTARROTINADIARIA");
     }
 
     @FXML
     void botaoListarTerapias(ActionEvent event) {
-
+        App.pushScreen("LISTARTERAPIAS");
     }
 
     @FXML
