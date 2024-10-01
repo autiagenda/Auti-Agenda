@@ -18,7 +18,7 @@ public class RepositorioMedicamento {
         this.dao = dao;
     }
 
-     public Resultado agendarMendicamento(String titulo, LocalDate data, String horario, String detalhes, String foto) {
+     public Resultado agendarMedicamento(String titulo, LocalDate data, String horario, String detalhes, String foto) {
 
         if (titulo == null || titulo.isEmpty() || titulo.isBlank()) {
             return Resultado.erro("Informe o título do seu agendamento!");

@@ -41,7 +41,7 @@ public class Login {
             } else {
                 exibirAlerta("ERRO", resultadoBusca != null ? resultadoBusca.getMsg() : "Ocorreu um erro na busca do usuário...");
             }
-        }  //Chamar a tela de menu principal
+        }  
     }
 
     private void exibirAlerta(String titulo, String mensagem) {
