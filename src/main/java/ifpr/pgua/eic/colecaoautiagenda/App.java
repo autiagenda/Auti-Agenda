@@ -78,6 +78,6 @@ public class App extends BaseAppNavigator {
                 
                 registraTela("AGENDAMENTOMEDICAMENTO", new ScreenRegistryFXML(App.class, "tela_agendamento_medicamento.fxml", o -> new AgendamentoMedicamento(repositorioMedicamento)));
 
-             //   registraTela("MENUPRINCIPALLISTAR", new ScreenRegistryFXML(App.class, "tela_menu_principal_listar.fxml", o -> new MenuPrincipalListar()));
+                registraTela("MENUPRINCIPALLISTAR", new ScreenRegistryFXML(App.class, "tela_menu_principal_listar.fxml", o -> new MenuPrincipalListar()));
         }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -54,5 +55,24 @@
             <Image url="@icones/pilulas.png" />
          </image>
       </ImageView>
+      <ToolBar layoutY="678.0" prefHeight="54.0" prefWidth="380.0" style="-fx-background-color: #78B5CF;">
+         <items>
+            <Button mnemonicParsing="false" onAction="#abreTelaPricipalMenu" text="Menu">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Listas">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#sair" text="Sair">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </Button>
+         </items>
+      </ToolBar>
    </children>
 </AnchorPane>

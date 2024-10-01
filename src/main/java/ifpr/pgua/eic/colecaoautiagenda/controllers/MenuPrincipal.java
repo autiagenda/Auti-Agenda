@@ -3,6 +3,7 @@ package ifpr.pgua.eic.colecaoautiagenda.controllers;
 import ifpr.pgua.eic.colecaoautiagenda.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.application.Platform;
 
 public class MenuPrincipal {
     
@@ -34,5 +35,15 @@ public class MenuPrincipal {
   @FXML
   void botaoTerapias2(ActionEvent event) {
     App.pushScreen("AGENDAMENTOTERAPIA");
+  }
+
+  @FXML
+  void abrirTelaPrincipalListar(ActionEvent event) {
+    App.pushScreen("MENUPRINCIPALLISTAR");
+  }
+
+  @FXML
+  void sair(ActionEvent event) {
+    Platform.exit();
   }
 }
