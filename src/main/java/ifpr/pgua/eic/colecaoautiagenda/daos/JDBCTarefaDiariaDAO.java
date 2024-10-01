@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 import com.github.hugoperlin.results.Resultado;
 
 import ifpr.pgua.eic.colecaoautiagenda.models.TarefaDiaria;

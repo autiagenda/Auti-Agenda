@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import com.github.hugoperlin.results.Resultado;
 
 import ifpr.pgua.eic.colecaoautiagenda.App;
-import ifpr.pgua.eic.colecaoautiagenda.models.TarefaDiaria;
 import ifpr.pgua.eic.colecaoautiagenda.repositories.RepositorioTarefaDiaria;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,7 +55,7 @@ public class AgendamentoTarefaDiaria {
             alert = new Alert(AlertType.ERROR, mensagemErro);
         }
         alert.showAndWait();
-        App.popScreen();  // Retorna à tela anterior após o cadastro
+        App.popScreen();  // Retorna à tela anterior após o cadastro, arrumar esta parte e verificar sobre data (coluna diz que está faltante)
     }
 
     @FXML

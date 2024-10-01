@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS tb_responsavel (
 CREATE TABLE IF NOT EXISTS tb_rotina_diaria (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL,
-    data_agendamento DATE NOT NULL,
+    data DATE NOT NULL,
     horario TIME NOT NULL,
     detalhes VARCHAR(150)
 );
