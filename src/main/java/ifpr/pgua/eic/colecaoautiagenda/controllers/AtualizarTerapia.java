@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 public class AtualizarTerapia {
     
-      @FXML
+    @FXML
     private DatePicker labelData;
 
     @FXML
