@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="380.0" style="-fx-background-color: #E8FDFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.colecaoautiagenda.controllers.ListarTarefasDiarias" />
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="380.0" style="-fx-background-color: #E8FDFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.colecaoautiagenda.controllers.ListarTarefasDiarias">
+   <children>
+      <ListView fx:id="listaDeAgendamentos" layoutX="17.0" layoutY="116.0" prefHeight="532.0" prefWidth="345.0" />
+      <Pane layoutX="-5.0" prefHeight="83.0" prefWidth="387.0" style="-fx-background-color: #78B5CF;">
+         <children>
+            <Text fill="WHITE" layoutX="115.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rotina Diária" textAlignment="CENTER">
+               <font>
+                  <Font name="Tahoma Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voltar" textAlignment="CENTER">
+               <font>
+                  <Font name="Tahoma Bold" size="11.0" />
+               </font>
+            </Text>
+            <Button layoutX="8.0" layoutY="5.0" mnemonicParsing="false" onAction="#voltar" prefHeight="27.0" prefWidth="46.0" style="-fx-background-color: #78B5CF;" text="&lt;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Button layoutX="25.0" layoutY="661.0" mnemonicParsing="false" onAction="#deletarAgendamento" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #F8E3E3; -fx-background-radius: 18px;" text="Deletar">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="145.0" layoutY="661.0" mnemonicParsing="false" onAction="#editarAgendamento" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #DFDFDF; -fx-background-radius: 18px;" text="Editar">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="266.0" layoutY="661.0" mnemonicParsing="false" onAction="#concluirAgendamento" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #DFF6E1; -fx-background-radius: 18px;" text="Concluir">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
