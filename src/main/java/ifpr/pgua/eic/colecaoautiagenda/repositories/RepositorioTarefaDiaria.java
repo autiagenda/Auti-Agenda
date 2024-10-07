@@ -44,7 +44,7 @@ public class RepositorioTarefaDiaria {
         return dao.listar();
     }
 
-    public Resultado deletarTerapia(int id) {
+    public Resultado deletarTarefaDiaria(int id) {
         return dao.deletar(id);
     }
 }

@@ -65,7 +65,7 @@ public class ListarTarefasDiarias implements Initializable{
         opcaoSelecionada = listaDeAgendamentos.getSelectionModel().getSelectedItem();
 
         if (opcaoSelecionada != null) {
-            Resultado resultado = repositorioTarefaDiaria.deletarTerapia(opcaoSelecionada.getId());
+            Resultado resultado = repositorioTarefaDiaria.deletarTarefaDiaria(opcaoSelecionada.getId());
 
             if (resultado.foiSucesso()) {
                 listaDeAgendamentos.getItems().remove(opcaoSelecionada);

@@ -42,4 +42,8 @@ public class RepositorioTerapia {
     public Resultado listarAgendamentosTerapia() {
         return dao.listar();
     }
+
+    public Resultado deletarTerapia(int id) {
+        return dao.deletar(id);
+    }
 }

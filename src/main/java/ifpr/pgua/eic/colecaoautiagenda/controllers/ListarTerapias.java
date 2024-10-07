@@ -21,6 +21,8 @@ public class ListarTerapias implements Initializable{
     @FXML
     private ListView<Terapia> listaDeAgendamentos;
 
+    private Terapia opcaoSelecionada;
+
     private RepositorioTerapia repositorioTerapia;
     
     public ListarTerapias(RepositorioTerapia repositorioTerapia) {
@@ -49,8 +51,32 @@ public class ListarTerapias implements Initializable{
     }
 
     @FXML
-    void deletarAgendamento(ActionEvent event) {
+    private void selecionar() {
+        Terapia itemSelecionado = listaDeAgendamentos.getSelectionModel().getSelectedItem();
+        if (itemSelecionado != null) {
+            opcaoSelecionada = itemSelecionado;
+        }
+    }
 
+    @FXML
+    void deletarAgendamento(ActionEvent event) {
+        opcaoSelecionada = listaDeAgendamentos.getSelectionModel().getSelectedItem();
+
+        if (opcaoSelecionada != null) {
+            Resultado resultado = repositorioTerapia.deletarTerapia(opcaoSelecionada.getId());
+
+            if (resultado.foiSucesso()) {
+                listaDeAgendamentos.getItems().remove(opcaoSelecionada);
+                Alert alert = new Alert(AlertType.INFORMATION, "Ótimo! Lembrete de Terapia deletada com sucesso!");
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(AlertType.ERROR, resultado.getMsg());
+                alert.showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(AlertType.WARNING, "Nenhum lembrete foi selecionado, tente novamente!");
+            alert.showAndWait();
+        }
     }
 
     @FXML
