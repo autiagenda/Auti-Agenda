@@ -22,6 +22,8 @@ public class ListarTarefasDiarias implements Initializable{
     @FXML
     private ListView<TarefaDiaria> listaDeAgendamentos;
 
+    private TarefaDiaria opcaoSelecionada;
+
     private RepositorioTarefaDiaria repositorioTarefaDiaria;
     
     public ListarTarefasDiarias(RepositorioTarefaDiaria repositorioTarefaDiaria) {
@@ -51,8 +53,32 @@ public class ListarTarefasDiarias implements Initializable{
     }
 
     @FXML
-    void deletarAgendamento(ActionEvent event) {
+    private void selecionar() {
+        TarefaDiaria itemSelecionado = listaDeAgendamentos.getSelectionModel().getSelectedItem();
+        if (itemSelecionado != null) {
+            opcaoSelecionada = itemSelecionado;
+        }
+    }
 
+    @FXML
+    void deletarAgendamento(ActionEvent event) {
+        opcaoSelecionada = listaDeAgendamentos.getSelectionModel().getSelectedItem();
+
+        if (opcaoSelecionada != null) {
+            Resultado resultado = repositorioTarefaDiaria.deletarTerapia(opcaoSelecionada.getId());
+
+            if (resultado.foiSucesso()) {
+                listaDeAgendamentos.getItems().remove(opcaoSelecionada);
+                Alert alert = new Alert(AlertType.INFORMATION, "Ótimo! Lembrete de Tarefa Diária deletada com sucesso!");
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(AlertType.ERROR, resultado.getMsg());
+                alert.showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(AlertType.WARNING, "Nenhum lembrete foi selecionado, tente novamente!");
+            alert.showAndWait();
+        }
     }
 
     @FXML

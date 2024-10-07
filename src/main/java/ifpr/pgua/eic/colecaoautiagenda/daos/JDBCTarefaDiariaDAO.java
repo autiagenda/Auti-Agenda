@@ -70,5 +70,22 @@ public class JDBCTarefaDiariaDAO implements TarefaDiariaDAO{
             return Resultado.erro(e.getMessage());
         }
     }
+
+    @Override
+    public Resultado deletar(int id) {
+        try (Connection con = fabrica.getConnection()) {
+            PreparedStatement pstm = con.prepareStatement("DELETE FROM tb_rotina_diaria WHERE id = ?");
+            pstm.setInt(1, id);
+
+            int ret = pstm.executeUpdate();
+
+            if (ret == 1) {
+                return Resultado.sucesso("Ótimo! Lembrete de Tarefa Diária deletado com sucesso", con);
+            }
+            return Resultado.erro("Lembrete de Tarefa Diária não encontrado...");
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
+    }
 }
 
