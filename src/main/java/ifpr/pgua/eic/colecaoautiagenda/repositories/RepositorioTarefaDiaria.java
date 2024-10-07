@@ -39,5 +39,8 @@ public class RepositorioTarefaDiaria {
         TarefaDiaria novaTarefaDiaria = new TarefaDiaria(titulo, data, horario, detalhes);
         return dao.criar(novaTarefaDiaria);
     } 
-    //adicionar o crud faltante
+
+    public Resultado listarAgendamentos() {
+        return dao.listar();
+    }
 }

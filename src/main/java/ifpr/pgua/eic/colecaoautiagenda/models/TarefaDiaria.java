@@ -63,4 +63,14 @@ public class TarefaDiaria {
     public void setDetalhes(String detalhes) {
         this.detalhes = detalhes;
     }
+
+    @Override
+    public String toString() {
+        return ""+
+                "Título: " + titulo + "\n" +
+                "Data Agendada: " + data + "\n" +
+                "Horário: " + horario + "\n" +
+                "Detalhes: " + detalhes + "\n" +
+                "";
+    }
 }
