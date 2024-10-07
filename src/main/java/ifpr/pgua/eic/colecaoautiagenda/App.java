@@ -90,7 +90,7 @@ public class App extends BaseAppNavigator {
                 
                 registraTela("LISTARROTINADIARIA", new ScreenRegistryFXML(App.class, "tela_listar_rotina_diaria.fxml", o -> new ListarTarefasDiarias(repositorioTarefaDiaria)));
                 
-                registraTela("LISTARTERAPIAS", new ScreenRegistryFXML(App.class, "tela_listar_terapia.fxml", o -> new ListarTerapias()));
+                registraTela("LISTARTERAPIAS", new ScreenRegistryFXML(App.class, "tela_listar_terapia.fxml", o -> new ListarTerapias(repositorioTerapia)));
 
                 registraTela("ATUALIZARTAREFADIARIA", new ScreenRegistryFXML(App.class, "tela_atualizar_rotina_diaria.fxml", o -> new AtualizarTarefaDiaria()));
 

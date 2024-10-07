@@ -38,5 +38,8 @@ public class RepositorioTerapia {
         Terapia novaTerapia = new Terapia(titulo, data, horario, detalhes);
         return dao.criar(novaTerapia);
     } 
-    //adicionar o crud faltante
+
+    public Resultado listarAgendamentosTerapia() {
+        return dao.listar();
+    }
 }

@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 import com.github.hugoperlin.results.Resultado;
 
@@ -39,6 +41,31 @@ public class JDBCTerapiaDAO implements TerapiaDAO{
                 return Resultado.sucesso("Agendamento de Terapia realizada com sucesso!", terapia);
             }
             return Resultado.erro("O agendamento de Terapia não deu certo...");
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
+    }
+
+    @Override
+    public Resultado listar() {
+        try (Connection con = fabrica.getConnection()) {
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM tb_terapia");
+
+            ResultSet rs = pstm.executeQuery();
+            ArrayList<Terapia> lista = new ArrayList<>();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String titulo = rs.getString("titulo");
+                LocalDate data = rs.getObject("data", LocalDate.class);
+                String horario = rs.getString("horario");
+                String detalhes = rs.getString("detalhes");
+
+                Terapia terapia = new Terapia(id, titulo, data, horario, detalhes);
+                lista.add(terapia);
+            }
+
+            return Resultado.sucesso("Lista de Terapias", lista);
         } catch (SQLException e) {
             return Resultado.erro(e.getMessage());
         }

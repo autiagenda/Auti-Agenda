@@ -40,7 +40,7 @@ public class RepositorioTarefaDiaria {
         return dao.criar(novaTarefaDiaria);
     } 
 
-    public Resultado listarAgendamentos() {
+    public Resultado listarAgendamentosTarefaDiaria() {
         return dao.listar();
     }
 }

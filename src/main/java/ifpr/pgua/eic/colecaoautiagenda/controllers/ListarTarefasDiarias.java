@@ -34,7 +34,7 @@ public class ListarTarefasDiarias implements Initializable{
 
         listaDeAgendamentos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        Resultado resultado = repositorioTarefaDiaria.listarAgendamentos();
+        Resultado resultado = repositorioTarefaDiaria.listarAgendamentosTarefaDiaria();
         if (resultado.foiErro()) {
             Alert alert = new Alert(AlertType.ERROR, resultado.getMsg());
             alert.showAndWait();
