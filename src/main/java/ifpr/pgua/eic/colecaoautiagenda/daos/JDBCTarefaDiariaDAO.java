@@ -87,5 +87,29 @@ public class JDBCTarefaDiariaDAO implements TarefaDiariaDAO{
             return Resultado.erro(e.getMessage());
         }
     }
+
+    @Override
+    public Resultado editar(int id, TarefaDiaria novo) {
+        try (Connection con = fabrica.getConnection();) {
+
+            PreparedStatement pstm = con.prepareStatement(
+                    "UPDATE tb_rotina_diaria SET titulo=?, data=?, horario=?, detalhes=? WHERE id=?");
+            pstm.setString(1, novo.getTitulo());
+            pstm.setDate(2, Date.valueOf(novo.getData()));
+            pstm.setString(3, novo.getHorario());
+            pstm.setString(4, novo.getDetalhes());
+    
+            pstm.setInt(5, id);
+
+            int ret = pstm.executeUpdate();
+
+            if (ret == 1) {
+                return Resultado.sucesso("Agendamento de Tarefa Diária Atualizada!", novo);
+            }
+            return Resultado.erro("Erro não identificado...");
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
+    }
 }
 

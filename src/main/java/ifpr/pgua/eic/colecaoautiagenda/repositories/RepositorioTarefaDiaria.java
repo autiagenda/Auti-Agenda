@@ -1,5 +1,6 @@
 package ifpr.pgua.eic.colecaoautiagenda.repositories;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -46,5 +47,11 @@ public class RepositorioTarefaDiaria {
 
     public Resultado deletarTarefaDiaria(int id) {
         return dao.deletar(id);
+    }
+
+    public Resultado editarAgendamentoTarefaDiaria(int id, String titulo, LocalDate data, String horario, String detalhes){
+        TarefaDiaria novo = new TarefaDiaria(id, titulo, data, horario, detalhes);
+
+        return dao.editar(id, novo);
     }
 }

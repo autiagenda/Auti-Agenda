@@ -35,17 +35,18 @@ public class ListarTarefasDiarias implements Initializable{
         listaDeAgendamentos.getItems().clear();
 
         listaDeAgendamentos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
+    
         Resultado resultado = repositorioTarefaDiaria.listarAgendamentosTarefaDiaria();
+
         if (resultado.foiErro()) {
             Alert alert = new Alert(AlertType.ERROR, resultado.getMsg());
             alert.showAndWait();
         } else {
-            List lista = (List) resultado.comoSucesso().getObj();
+            List<TarefaDiaria> lista = (List<TarefaDiaria>) resultado.comoSucesso().getObj();
             listaDeAgendamentos.getItems().addAll(lista);
         }
-        
     }
+    
 
     @FXML
     void concluirAgendamento(ActionEvent event) {
@@ -83,9 +84,16 @@ public class ListarTarefasDiarias implements Initializable{
 
     @FXML
     void editarAgendamento(ActionEvent event) {
-        App.pushScreen("ATUALIZARTAREFADIARIA");
+        opcaoSelecionada = listaDeAgendamentos.getSelectionModel().getSelectedItem();
+        
+        if (opcaoSelecionada != null) {
+            App.pushScreen("AGENDAMENTOROTINADIARIA", o -> new AgendamentoTarefaDiaria(repositorioTarefaDiaria, opcaoSelecionada));
+        } else {
+            Alert alert = new Alert(AlertType.WARNING, "Nenhum agendamento selecionado...");
+            alert.showAndWait();
+        }
     }
-
+    
     @FXML
     void voltar(ActionEvent event) {
         App.pushScreen("MENUPRINCIPALLISTAR");

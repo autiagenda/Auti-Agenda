@@ -8,5 +8,5 @@ public interface TarefaDiariaDAO {
     Resultado criar(TarefaDiaria tarefaDiaria);
     Resultado listar();
     Resultado deletar(int id);
-   // Resultado editar(int id, TarefaDiaria novo);
+    Resultado editar(int id, TarefaDiaria novo);
 }
