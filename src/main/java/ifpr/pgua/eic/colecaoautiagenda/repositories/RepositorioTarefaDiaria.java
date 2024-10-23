@@ -49,6 +49,10 @@ public class RepositorioTarefaDiaria {
         return dao.deletar(id);
     }
 
+    public Resultado concluirTarefaDiaria(int id) {
+        return dao.deletar(id);
+    }
+
     public Resultado editarAgendamentoTarefaDiaria(int id, String titulo, LocalDate data, String horario, String detalhes){
         TarefaDiaria novo = new TarefaDiaria(id, titulo, data, horario, detalhes);
 

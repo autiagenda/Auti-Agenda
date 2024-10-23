@@ -46,13 +46,37 @@ public class ListarTarefasDiarias implements Initializable{
             listaDeAgendamentos.getItems().addAll(lista);
         }
     }
-    
 
+    private void concluirOuDeletarTarefaDiaria(TarefaDiaria tarefa, String tipoOperacao, Resultado resultadoOperacao) {
+        if (tarefa != null) {
+            if (resultadoOperacao.foiSucesso()) {
+                listaDeAgendamentos.getItems().remove(tarefa);
+                String mensagem = tipoOperacao.equals("concluir") ? "Parabéns! Tarefa Diária concluída com sucesso!" : "Ótimo! Lembrete de Tarefa Diária deletado com sucesso!";
+                Alert alert = new Alert(AlertType.INFORMATION, mensagem);
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(AlertType.ERROR, resultadoOperacao.getMsg());
+                alert.showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(AlertType.WARNING, "Nenhum lembrete foi selecionado, tente novamente!");
+            alert.showAndWait();
+        }
+    }
+    
     @FXML
     void concluirAgendamento(ActionEvent event) {
-
+        opcaoSelecionada = listaDeAgendamentos.getSelectionModel().getSelectedItem();
+    
+        if (opcaoSelecionada != null) {
+            Resultado resultado = repositorioTarefaDiaria.concluirTarefaDiaria(opcaoSelecionada.getId());
+            concluirOuDeletarTarefaDiaria(opcaoSelecionada, "concluir", resultado);
+        } else {
+            Alert alert = new Alert(AlertType.WARNING, "Nenhum lembrete foi selecionado, tente novamente!");
+            alert.showAndWait();
+        }
     }
-
+    
     @FXML
     private void selecionar() {
         TarefaDiaria itemSelecionado = listaDeAgendamentos.getSelectionModel().getSelectedItem();
@@ -64,18 +88,10 @@ public class ListarTarefasDiarias implements Initializable{
     @FXML
     void deletarAgendamento(ActionEvent event) {
         opcaoSelecionada = listaDeAgendamentos.getSelectionModel().getSelectedItem();
-
+    
         if (opcaoSelecionada != null) {
             Resultado resultado = repositorioTarefaDiaria.deletarTarefaDiaria(opcaoSelecionada.getId());
-
-            if (resultado.foiSucesso()) {
-                listaDeAgendamentos.getItems().remove(opcaoSelecionada);
-                Alert alert = new Alert(AlertType.INFORMATION, "Ótimo! Lembrete de Tarefa Diária deletada com sucesso!");
-                alert.showAndWait();
-            } else {
-                Alert alert = new Alert(AlertType.ERROR, resultado.getMsg());
-                alert.showAndWait();
-            }
+            concluirOuDeletarTarefaDiaria(opcaoSelecionada, "deletar", resultado);
         } else {
             Alert alert = new Alert(AlertType.WARNING, "Nenhum lembrete foi selecionado, tente novamente!");
             alert.showAndWait();
@@ -90,6 +106,21 @@ public class ListarTarefasDiarias implements Initializable{
             App.pushScreen("AGENDAMENTOROTINADIARIA", o -> new AgendamentoTarefaDiaria(repositorioTarefaDiaria, opcaoSelecionada));
         } else {
             Alert alert = new Alert(AlertType.WARNING, "Nenhum agendamento selecionado...");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    void recarregarLista(ActionEvent event) {
+        listaDeAgendamentos.getItems().clear();
+
+        Resultado resultadoLista = repositorioTarefaDiaria.listarAgendamentosTarefaDiaria();
+
+        if (resultadoLista.foiSucesso()) {
+           List<TarefaDiaria> listaRecarregada = (List<TarefaDiaria>) resultadoLista.comoSucesso().getObj();
+           listaDeAgendamentos.getItems().addAll(listaRecarregada); 
+        }else{
+            Alert alert = new Alert(AlertType.ERROR, resultadoLista.getMsg());
             alert.showAndWait();
         }
     }
