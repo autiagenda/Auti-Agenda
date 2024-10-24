@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import com.github.hugoperlin.results.Resultado;
 
+import ifpr.pgua.eic.colecaoautiagenda.models.TarefaDiaria;
 import ifpr.pgua.eic.colecaoautiagenda.models.Terapia;
 
 public class JDBCTerapiaDAO implements TerapiaDAO{
@@ -83,6 +84,30 @@ public class JDBCTerapiaDAO implements TerapiaDAO{
                 return Resultado.sucesso("Ótimo! Lembrete de Terapia deletado com sucesso", con);
             }
             return Resultado.erro("Lembrete de Terapia não encontrado...");
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
+    }
+
+    @Override
+    public Resultado editar(int id, Terapia novo) {
+        try (Connection con = fabrica.getConnection();) {
+
+            PreparedStatement pstm = con.prepareStatement(
+                    "UPDATE tb_terapia SET titulo=?, data=?, horario=?, detalhes=? WHERE id=?");
+            pstm.setString(1, novo.getTitulo());
+            pstm.setDate(2, Date.valueOf(novo.getData()));
+            pstm.setString(3, novo.getHorario());
+            pstm.setString(4, novo.getDetalhes());
+    
+            pstm.setInt(5, id);
+
+            int ret = pstm.executeUpdate();
+
+            if (ret == 1) {
+                return Resultado.sucesso("Agendamento de Terapia Atualizado!", novo);
+            }
+            return Resultado.erro("Erro não identificado...");
         } catch (SQLException e) {
             return Resultado.erro(e.getMessage());
         }

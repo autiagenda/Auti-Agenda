@@ -43,7 +43,16 @@ public class RepositorioTerapia {
         return dao.listar();
     }
 
+    public Resultado concluirTerapia(int id) {
+        return dao.deletar(id);
+    }
+
     public Resultado deletarTerapia(int id) {
         return dao.deletar(id);
+    }
+    public Resultado editarAgendamentoTerapia(int id, String titulo, LocalDate data, String horario, String detalhes){
+        Terapia novo = new Terapia(id, titulo, data, horario, detalhes);
+
+        return dao.editar(id, novo);
     }
 }

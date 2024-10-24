@@ -31,7 +31,7 @@
             <Font name="Tahoma" size="19.0" />
          </font>
       </Text>
-      <Button layoutX="91.0" layoutY="630.0" mnemonicParsing="false" onAction="#botaoAgendarTerapia" prefHeight="50.0" prefWidth="208.0" style="-fx-background-color: #03435F; -fx-background-radius: 15px;" text="Agendar" textFill="WHITE">
+      <Button fx:id="btatualizar" layoutX="91.0" layoutY="630.0" mnemonicParsing="false" onAction="#botaoAgendarTerapia" prefHeight="50.0" prefWidth="208.0" style="-fx-background-color: #03435F; -fx-background-radius: 15px;" text="Agendar" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="20.0" />
          </font>

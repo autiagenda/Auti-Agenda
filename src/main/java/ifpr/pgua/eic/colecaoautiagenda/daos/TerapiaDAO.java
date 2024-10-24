@@ -8,6 +8,6 @@ public interface TerapiaDAO {
     Resultado criar(Terapia terapia);
     Resultado listar();
     Resultado deletar(int id);
-  //  Resultado editar(int id, Terapia novo);
+    Resultado editar(int id, Terapia novo);
     
 }
