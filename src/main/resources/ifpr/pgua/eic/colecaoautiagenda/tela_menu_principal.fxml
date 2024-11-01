@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="380.0" style="-fx-background-color: #E8FDFF; ra: 15px;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.colecaoautiagenda.controllers.MenuPrincipal">
    <children>
-      <Button alignment="BASELINE_LEFT" layoutX="14.0" layoutY="119.0" mnemonicParsing="false" onAction="#botaoRotinaDiaria2" prefHeight="164.0" prefWidth="350.0" style="-fx-background-color: #94ECFF; -fx-background-radius: 18px;">
+      <Button alignment="BASELINE_LEFT" layoutX="14.0" layoutY="101.0" mnemonicParsing="false" onAction="#botaoRotinaDiaria2" prefHeight="164.0" prefWidth="350.0" style="-fx-background-color: #94ECFF; -fx-background-radius: 18px;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font></Button>
-      <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="305.0" mnemonicParsing="false" onAction="#botaoTerapias2" prefHeight="164.0" prefWidth="350.0" style="-fx-background-color: #F0BF76; -fx-background-radius: 18px;">
+      <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="288.0" mnemonicParsing="false" onAction="#botaoTerapias2" prefHeight="164.0" prefWidth="350.0" style="-fx-background-color: #F0BF76; -fx-background-radius: 18px;">
          <font>
             <Font name="Tahoma" size="19.0" />
          </font></Button>
-      <Button alignment="BASELINE_LEFT" layoutX="15.0" layoutY="490.0" mnemonicParsing="false" onAction="#botaoMedicamentos2" prefHeight="164.0" prefWidth="350.0" style="-fx-background-color: #EFF18E; -fx-background-radius: 18px;">
+      <Button alignment="BASELINE_LEFT" layoutX="15.0" layoutY="475.0" mnemonicParsing="false" onAction="#botaoMedicamentos2" prefHeight="164.0" prefWidth="350.0" style="-fx-background-color: #EFF18E; -fx-background-radius: 18px;">
          <font>
             <Font name="Tahoma" size="20.0" />
          </font></Button>
@@ -27,57 +27,57 @@
             <Font name="Tahoma" size="20.0" />
          </font>
       </Text>
-      <Text layoutX="54.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione uma opção:">
+      <Text layoutX="54.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione uma opção:">
          <font>
             <Font name="Tahoma" size="15.0" />
          </font>
       </Text>
-      <ImageView fitHeight="104.0" fitWidth="101.0" layoutX="247.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="104.0" fitWidth="101.0" layoutX="247.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/terapia.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="101.0" fitWidth="101.0" layoutX="249.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="101.0" fitWidth="101.0" layoutX="249.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/rotina.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="119.0" fitWidth="122.0" layoutX="235.0" layoutY="516.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="119.0" fitWidth="122.0" layoutX="235.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/pilula.png" />
          </image>
       </ImageView>
-      <Text layoutX="57.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DIÁRIA">
+      <Text layoutX="57.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DIÁRIA">
          <font>
             <Font name="Tahoma" size="20.0" />
          </font>
       </Text>
-      <Button layoutX="41.0" layoutY="229.0" mnemonicParsing="false" onAction="#botaoRotinaDiaria1" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15px;" text="Criar Lembrete">
+      <Button layoutX="41.0" layoutY="208.0" mnemonicParsing="false" onAction="#botaoRotinaDiaria1" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15px;" text="Criar Lembrete">
          <font>
             <Font name="Tahoma" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="593.0" mnemonicParsing="false" onAction="#botaoMedicamentos1" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15px;" text="Criar Lembrete">
+      <Button layoutX="41.0" layoutY="582.0" mnemonicParsing="false" onAction="#botaoMedicamentos1" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15px;" text="Criar Lembrete">
          <font>
             <Font name="Tahoma" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="406.0" mnemonicParsing="false" onAction="#botaoTerapias1" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15px;" text="Criar Lembrete">
+      <Button layoutX="41.0" layoutY="396.0" mnemonicParsing="false" onAction="#botaoTerapias1" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15px;" text="Criar Lembrete">
          <font>
             <Font name="Tahoma" size="14.0" />
          </font>
       </Button>
-      <Text layoutX="56.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROTINA" wrappingWidth="80.033203125">
+      <Text layoutX="56.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROTINA" wrappingWidth="80.033203125">
          <font>
             <Font name="Tahoma" size="20.0" />
          </font>
       </Text>
-      <Text layoutX="62.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TERAPIAS">
+      <Text layoutX="62.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TERAPIAS">
          <font>
             <Font name="Tahoma" size="20.0" />
          </font>
       </Text>
-      <Text layoutX="42.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEDICAMENTOS">
+      <Text layoutX="42.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEDICAMENTOS">
          <font>
             <Font name="Tahoma" size="20.0" />
          </font>
@@ -87,24 +87,40 @@
             <Image url="@icones/user.png" />
          </image>
       </ImageView>
-      <ToolBar layoutY="676.0" prefHeight="54.0" prefWidth="380.0" style="-fx-background-color: #78B5CF;">
-        <items>
-          <Button mnemonicParsing="false" text="Menu">
+      <Pane layoutX="-5.0" layoutY="663.0" prefHeight="72.0" prefWidth="392.0" style="-fx-background-color: #78B5CF;">
+         <children>
+          <Button alignment="BOTTOM_CENTER" layoutX="-1.0" layoutY="9.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="135.0" style="-fx-background-color: #78B5CF;" text="Menu">
                <font>
-                  <Font name="Tahoma Bold" size="15.0" />
+                  <Font name="Tahoma Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#abrirTelaPrincipalListar" text="Listas">
+            <Button alignment="BOTTOM_CENTER" layoutX="139.0" layoutY="11.0" mnemonicParsing="false" onAction="#abrirTelaPrincipalListar" prefHeight="59.0" prefWidth="109.0" style="-fx-background-color: #78B5CF;" text="Listas">
                <font>
-                  <Font name="Tahoma Bold" size="15.0" />
+                  <Font name="Tahoma Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#sair" text="Sair">
+            <Button alignment="BOTTOM_CENTER" layoutX="259.0" layoutY="10.0" mnemonicParsing="false" onAction="#sair" prefHeight="62.0" prefWidth="114.0" style="-fx-background-color: #78B5CF;" text="Sair">
                <font>
-                  <Font name="Tahoma Bold" size="15.0" />
+                  <Font name="Tahoma Bold" size="14.0" />
                </font>
             </Button>
-        </items>
-      </ToolBar>
+            <ImageView fitHeight="36.0" fitWidth="30.0" layoutX="52.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icones/home%20(1).png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="27.0" prefHeight="7.0" prefWidth="80.0" style="-fx-background-color: #000000;" />
+            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="180.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icones/list-interface-symbol.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="36.0" layoutX="304.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icones/sign-out.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

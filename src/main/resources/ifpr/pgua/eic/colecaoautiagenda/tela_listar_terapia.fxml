@@ -2,6 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -9,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="380.0" style="-fx-background-color: #E8FDFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.colecaoautiagenda.controllers.ListarTerapias">
    <children>
-      <ListView fx:id="listaDeAgendamentos" layoutX="17.0" layoutY="90.0" prefHeight="532.0" prefWidth="345.0" />
+      <ListView fx:id="listaDeAgendamentos" layoutX="18.0" layoutY="110.0" prefHeight="532.0" prefWidth="345.0" style="-fx-font-size: 16px;" />
       <Pane layoutX="-5.0" prefHeight="83.0" prefWidth="387.0" style="-fx-background-color: #78B5CF;">
          <children>
             <Text fill="WHITE" layoutX="152.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terapia" textAlignment="CENTER">
@@ -17,33 +20,72 @@
                   <Font name="Tahoma Bold" size="22.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voltar" textAlignment="CENTER">
-               <font>
-                  <Font name="Tahoma Bold" size="11.0" />
-               </font>
-            </Text>
-            <Button layoutX="8.0" layoutY="5.0" mnemonicParsing="false" onAction="#voltar" prefHeight="27.0" prefWidth="46.0" style="-fx-background-color: #78B5CF;" text="&lt;" textFill="WHITE">
+            <Button layoutX="8.0" layoutY="5.0" mnemonicParsing="false" onAction="#voltar" prefHeight="75.0" prefWidth="74.0" style="-fx-background-color: #78B5CF;" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Button>
+            <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icones/icons8-arrow-30.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="20.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voltar" textAlignment="CENTER">
+               <font>
+                  <Font name="Tahoma Bold" size="11.0" />
+               </font>
+            </Text>
+            <Button fx:id="btatualizar" layoutX="285.0" layoutY="12.0" mnemonicParsing="false" onAction="#recarregarLista" prefHeight="68.0" prefWidth="100.0" style="-fx-background-color: #78B5CF;" />
+            <Text fill="WHITE" layoutX="314.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recarregar">
+               <font>
+                  <Font name="Tahoma Bold" size="11.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="37.0" fitWidth="31.0" layoutX="329.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icones/icons8-refresh-50.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Button layoutX="25.0" layoutY="629.0" mnemonicParsing="false" onAction="#deletarAgendamento" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #F8E3E3; -fx-background-radius: 18px;" text="Deletar">
+      <Button alignment="BOTTOM_CENTER" layoutX="23.0" layoutY="669.0" mnemonicParsing="false" onAction="#deletarAgendamento" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #F8E3E3; -fx-background-radius: 18px;" text="Deletar">
          <font>
             <Font name="Tahoma Bold" size="12.0" />
          </font>
+         <effect>
+            <DropShadow height="14.1" radius="6.2575" width="12.93" />
+         </effect>
       </Button>
-      <Button layoutX="145.0" layoutY="629.0" mnemonicParsing="false" onAction="#editarAgendamento" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #DFDFDF; -fx-background-radius: 18px;" text="Editar">
+      <Button alignment="BOTTOM_CENTER" layoutX="143.0" layoutY="669.0" mnemonicParsing="false" onAction="#editarAgendamento" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #DFDFDF; -fx-background-radius: 18px;" text="Editar">
          <font>
             <Font name="Tahoma Bold" size="12.0" />
          </font>
+         <effect>
+            <DropShadow height="14.1" radius="6.2575" width="12.93" />
+         </effect>
       </Button>
-      <Button layoutX="266.0" layoutY="633.0" mnemonicParsing="false" onAction="#concluirAgendamento" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #DFF6E1; -fx-background-radius: 18px;" text="Concluir">
+      <Button alignment="BOTTOM_CENTER" layoutX="262.0" layoutY="668.0" mnemonicParsing="false" onAction="#concluirAgendamento" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #DFF6E1; -fx-background-radius: 18px;" text="Concluir">
          <font>
             <Font name="Tahoma Bold" size="12.0" />
          </font>
+         <effect>
+            <DropShadow height="14.1" radius="6.2575" width="12.93" />
+         </effect>
       </Button>
-      <Button fx:id="btatualizar" layoutX="177.0" layoutY="690.0" mnemonicParsing="false" onAction="#recarregarLista" text="O" />
+      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="303.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icones/mdi_check-outline.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="183.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icones/lucide_pencil.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="63.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icones/tabler_trash.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

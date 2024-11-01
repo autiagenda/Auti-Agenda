@@ -25,6 +25,12 @@ public class ListarMedicamentos {
         App.pushScreen("ATUALIZARMEDICAMENTO");
     }
 
+    
+    @FXML
+    void recarregarLista(ActionEvent event) {
+
+    }
+
     @FXML
     void voltar(ActionEvent event) {
         App.pushScreen("MENUPRINCIPALLISTAR");
