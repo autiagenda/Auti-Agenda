@@ -33,7 +33,8 @@ CREATE TABLE IF NOT EXISTS tb_medicamento (
     data_agendamento DATE NOT NULL,
     horario TIME NOT NULL,
     detalhes VARCHAR(150),
-    foto VARCHAR(150)
+    foto VARCHAR(150),
+    periodo VARCHAR(150)
 );
 
 

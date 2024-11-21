@@ -21,13 +21,14 @@ public class JDBCMedicamentoDAO implements MedicamentoDAO{
     @Override
     public Resultado criar(Medicamento medicamento) {
         try (Connection con = fabrica.getConnection()) {
-            PreparedStatement pstm = con.prepareStatement("INSERT INTO tb_medicamento(titulo, data, horario, detalhes, foto) VALUES (?, ?, ?, ?, ?)",Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement pstm = con.prepareStatement("INSERT INTO tb_medicamento(titulo, data, horario, detalhes, foto, periodo) VALUES (?, ?, ?, ?, ?, ?)",Statement.RETURN_GENERATED_KEYS);
 
             pstm.setString(1, medicamento.getTitulo());
             pstm.setDate(2, Date.valueOf(medicamento.getData()));
             pstm.setString(3, medicamento.getHorario());
             pstm.setString(4, medicamento.getDetalhes());
             pstm.setString(5, medicamento.getFoto());
+            pstm.setString(6, medicamento.getPeriodo());
             int ret = pstm.executeUpdate();
 
             if (ret == 1) {
@@ -60,8 +61,9 @@ public class JDBCMedicamentoDAO implements MedicamentoDAO{
                 String horario = rs.getString("horario");
                 String detalhes = rs.getString("detalhes");
                 String foto = rs.getString("foto");
+                String periodo = rs.getString("periodo");
 
-                Medicamento medicamento = new Medicamento(id, titulo, data, horario, detalhes, foto);
+                Medicamento medicamento = new Medicamento(id, titulo, data, horario, detalhes, foto, periodo);
                 lista.add(medicamento);
             }
 
@@ -93,13 +95,14 @@ public class JDBCMedicamentoDAO implements MedicamentoDAO{
         try (Connection con = fabrica.getConnection();) {
 
             PreparedStatement pstm = con.prepareStatement(
-                    "UPDATE tb_medicamento SET titulo=?, data=?, horario=?, detalhes=?, foto=? WHERE id=?");
+                    "UPDATE tb_medicamento SET titulo=?, data=?, horario=?, detalhes=?, foto=?, periodo=? WHERE id=?");
             pstm.setString(1, novo.getTitulo());
             pstm.setDate(2, Date.valueOf(novo.getData()));
             pstm.setString(3, novo.getHorario());
             pstm.setString(4, novo.getDetalhes());
             pstm.setString(5, novo.getFoto());
-            pstm.setInt(6, id);
+            pstm.setString(6, novo.getPeriodo());
+            pstm.setInt(7, id);
 
             int ret = pstm.executeUpdate();
 

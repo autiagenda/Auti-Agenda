@@ -135,7 +135,7 @@
             <DropShadow height="6.65" radius="3.36" width="8.79" />
          </effect>
       </ToggleButton>
-      <Text layoutX="238.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Período:">
+      <Text layoutX="238.0" layoutY="579.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Período:">
          <font>
             <Font name="Tahoma" size="19.0" />
          </font>

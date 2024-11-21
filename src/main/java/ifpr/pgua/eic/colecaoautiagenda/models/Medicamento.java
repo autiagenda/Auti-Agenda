@@ -9,22 +9,25 @@ public class Medicamento {
     private String horario;
     private String detalhes;
     private String foto;
+    private String periodo;
 
-    public Medicamento(String titulo, LocalDate data, String horario, String detalhes, String foto) {
+    public Medicamento(String titulo, LocalDate data, String horario, String detalhes, String foto, String periodo) {
         this.titulo = titulo;
         this.data = data;
         this.horario = horario;
         this.detalhes = detalhes;
         this.foto = foto;
+        this.periodo = periodo;
     }
 
-    public Medicamento(int id, String titulo, LocalDate data, String horario, String detalhes, String foto) {
+    public Medicamento(int id, String titulo, LocalDate data, String horario, String detalhes, String foto, String periodo) {
         this.id = id;
         this.titulo = titulo;
         this.data = data;
         this.horario = horario;
         this.detalhes = detalhes;
         this.foto = foto;
+        this.periodo = periodo;
     }
 
     public int getId() {
@@ -75,6 +78,14 @@ public class Medicamento {
         this.foto = foto;
     }
 
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
+    }
+
     @Override
     public String toString() {
         return ""+
@@ -83,6 +94,7 @@ public class Medicamento {
                 "Horário: " + horario + "\n" +
                 "Detalhes: " + detalhes + "\n" +
                 "Foto: " + foto + "\n" +
+                "Período: " + foto + "\n" +
                 "";
     }
 }

@@ -50,6 +50,8 @@ public class AgendamentoMedicamento implements Initializable{
     @FXML
     private ToggleButton noite;
 
+    private String periodo;
+
     private RepositorioMedicamento repositorioMedicamento;
 
     public AgendamentoMedicamento(RepositorioMedicamento repositorioMedicamento) {
@@ -68,7 +70,7 @@ public class AgendamentoMedicamento implements Initializable{
         String horario = labelHorario.getText();
         String detalhes = labelDetalhes.getText();
     
-        if (titulo.isEmpty() || data == null || horario.isEmpty() || detalhes.isEmpty() || caminhoFotoSelecionada == null) {
+        if (titulo.isEmpty() || data == null || horario.isEmpty() || detalhes.isEmpty() || caminhoFotoSelecionada == null || periodo == null) {
             new Alert(AlertType.ERROR, "Por favor, preencha todos os campos!").showAndWait();
             return;
         }
@@ -76,9 +78,9 @@ public class AgendamentoMedicamento implements Initializable{
         Resultado resultado;
     
         if (anterior == null) {
-            resultado = repositorioMedicamento.agendarMedicamento(titulo, data, horario, detalhes, caminhoFotoSelecionada);
+            resultado = repositorioMedicamento.agendarMedicamento(titulo, data, horario, detalhes, caminhoFotoSelecionada, periodo);
         } else {
-            resultado = repositorioMedicamento.editarAgendamentoMedicamento(anterior.getId(), titulo, data, horario, detalhes, caminhoFotoSelecionada);
+            resultado = repositorioMedicamento.editarAgendamentoMedicamento(anterior.getId(), titulo, data, horario, detalhes, caminhoFotoSelecionada, periodo);
         }
     
         Alert alert;
@@ -146,12 +148,16 @@ public class AgendamentoMedicamento implements Initializable{
 
     @FXML
     void botaoDia(ActionEvent event) {
-
+        periodo = "Dia"; 
+        dia.setSelected(true); 
+        noite.setSelected(false);
     }
 
     @FXML
     void botaoNoite(ActionEvent event) {
-
+        periodo = "Noite"; 
+        noite.setSelected(true); 
+        dia.setSelected(false);
     }
 
     @FXML

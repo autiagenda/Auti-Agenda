@@ -16,7 +16,7 @@ public class RepositorioMedicamento {
         this.dao = dao;
     }
 
-     public Resultado agendarMedicamento(String titulo, LocalDate data, String horario, String detalhes, String foto) {
+     public Resultado agendarMedicamento(String titulo, LocalDate data, String horario, String detalhes, String foto, String periodo) {
 
         if (titulo == null || titulo.isEmpty() || titulo.isBlank()) {
             return Resultado.erro("Informe o título do seu agendamento!");
@@ -38,7 +38,11 @@ public class RepositorioMedicamento {
             return Resultado.erro("Foto não selecionada! Tente novamente");
         }
 
-        Medicamento novaMedicamento = new Medicamento(titulo, data, horario, detalhes, foto);
+        if (periodo == null || periodo.isEmpty() || periodo.isBlank()) {
+            return Resultado.erro("Período não selecionado! Tente novamente");
+        }
+
+        Medicamento novaMedicamento = new Medicamento(titulo, data, horario, detalhes, foto, periodo);
         return dao.criar(novaMedicamento);
     } 
 
@@ -53,8 +57,8 @@ public class RepositorioMedicamento {
     public Resultado deletarMedicamento(int id) {
         return dao.deletar(id);
     }
-    public Resultado editarAgendamentoMedicamento(int id, String titulo, LocalDate data, String horario, String detalhes, String foto){
-        Medicamento novo = new Medicamento(id, titulo, data, horario, detalhes, foto);
+    public Resultado editarAgendamentoMedicamento(int id, String titulo, LocalDate data, String horario, String detalhes, String foto, String periodo){
+        Medicamento novo = new Medicamento(id, titulo, data, horario, detalhes, foto, periodo);
 
         return dao.editar(id, novo);
     }
