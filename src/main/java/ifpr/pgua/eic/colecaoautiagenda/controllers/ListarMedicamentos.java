@@ -3,12 +3,9 @@ package ifpr.pgua.eic.colecaoautiagenda.controllers;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import com.github.hugoperlin.results.Resultado;
-
 import ifpr.pgua.eic.colecaoautiagenda.App;
 import ifpr.pgua.eic.colecaoautiagenda.models.Medicamento;
-import ifpr.pgua.eic.colecaoautiagenda.models.Terapia;
 import ifpr.pgua.eic.colecaoautiagenda.repositories.RepositorioMedicamento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

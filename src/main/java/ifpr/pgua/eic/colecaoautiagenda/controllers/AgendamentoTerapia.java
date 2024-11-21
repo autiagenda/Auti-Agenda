@@ -71,12 +71,21 @@ public class AgendamentoTerapia implements Initializable{
         Alert alert;
         if (resultado != null && resultado.foiSucesso()) {
             alert = new Alert(AlertType.INFORMATION, "Agendamento de Terapia cadastrado com sucesso!");
+            limparCampos();
         } else {
             String mensagemErro = resultado != null ? resultado.getMsg() : "Erro ao cadastrar um novo agendamento de Terapia...";
             alert = new Alert(AlertType.ERROR, mensagemErro);
         }
         alert.showAndWait();
         App.popScreen();  // Retorna à tela anterior após o cadastro, arrumar esta parte e verificar sobre data (coluna diz que está faltante)
+    }
+
+    @FXML
+    private void limparCampos() {
+        labelTitulo.clear();       
+        labelData.setValue(null);  
+        labelHorario.clear();     
+        labelDetalhes.clear();     
     }
 
     @Override
@@ -88,8 +97,10 @@ public class AgendamentoTerapia implements Initializable{
             labelDetalhes.setText(anterior.getDetalhes());
 
             btatualizar.setText("Atualizar");
-        }
+        }else {
+            limparCampos();
     }
+}
 
     @FXML
     void voltar(ActionEvent event) {

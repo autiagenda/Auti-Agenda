@@ -32,17 +32,17 @@
             <Font name="Tahoma" size="15.0" />
          </font>
       </Text>
-      <ImageView fitHeight="104.0" fitWidth="101.0" layoutX="247.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="104.0" fitWidth="101.0" layoutX="247.0" layoutY="322.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/terapia.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="101.0" fitWidth="101.0" layoutX="249.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="101.0" fitWidth="101.0" layoutX="249.0" layoutY="132.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/rotina.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="119.0" fitWidth="122.0" layoutX="235.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="119.0" fitWidth="122.0" layoutX="235.0" layoutY="503.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/pilula.png" />
          </image>
@@ -104,18 +104,18 @@
                   <Font name="Tahoma Bold" size="14.0" />
                </font>
             </Button>
-            <ImageView fitHeight="36.0" fitWidth="30.0" layoutX="52.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="30.0" layoutX="52.0" layoutY="13.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icones/home%20(1).png" />
                </image>
             </ImageView>
             <Pane layoutX="27.0" prefHeight="7.0" prefWidth="80.0" style="-fx-background-color: #000000;" />
-            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="180.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="180.0" layoutY="17.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icones/list-interface-symbol.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="36.0" layoutX="304.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="36.0" layoutX="304.0" layoutY="14.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icones/sign-out.png" />
                </image>

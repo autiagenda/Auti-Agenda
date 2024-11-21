@@ -25,7 +25,7 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Button>
-            <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="16.0" layoutY="22.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icones/icons8-arrow-30.png" />
                </image>
@@ -41,7 +41,7 @@
                   <Font name="Tahoma Bold" size="11.0" />
                </font>
             </Text>
-            <ImageView fitHeight="37.0" fitWidth="31.0" layoutX="329.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="31.0" layoutX="329.0" layoutY="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icones/icons8-refresh-50.png" />
                </image>
@@ -72,17 +72,17 @@
             <DropShadow height="14.1" radius="6.2575" width="12.93" />
          </effect>
       </Button>
-      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="303.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="303.0" layoutY="674.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/mdi_check-outline.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="183.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="183.0" layoutY="674.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/lucide_pencil.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="63.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="63.0" layoutY="674.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/tabler_trash.png" />
          </image>

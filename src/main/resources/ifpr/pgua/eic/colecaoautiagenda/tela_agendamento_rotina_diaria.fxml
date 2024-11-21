@@ -66,7 +66,7 @@
                   <Font name="Tahoma Bold" size="11.0" />
                </font>
             </Text>
-            <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="17.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="17.0" layoutY="21.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icones/icons8-arrow-30.png" />
                </image>

@@ -17,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.FileChooser;
 
 public class AgendamentoMedicamento implements Initializable{
@@ -43,6 +44,12 @@ public class AgendamentoMedicamento implements Initializable{
 
     private Medicamento anterior;
 
+    @FXML
+    private ToggleButton dia;
+
+    @FXML
+    private ToggleButton noite;
+
     private RepositorioMedicamento repositorioMedicamento;
 
     public AgendamentoMedicamento(RepositorioMedicamento repositorioMedicamento) {
@@ -66,17 +73,24 @@ public class AgendamentoMedicamento implements Initializable{
             return;
         }
     
-        Resultado resultadoAgendamento = repositorioMedicamento.agendarMedicamento(titulo, data, horario, detalhes, caminhoFotoSelecionada);
+        Resultado resultado;
+    
+        if (anterior == null) {
+            resultado = repositorioMedicamento.agendarMedicamento(titulo, data, horario, detalhes, caminhoFotoSelecionada);
+        } else {
+            resultado = repositorioMedicamento.editarAgendamentoMedicamento(anterior.getId(), titulo, data, horario, detalhes, caminhoFotoSelecionada);
+        }
     
         Alert alert;
-        if (resultadoAgendamento != null && resultadoAgendamento.foiSucesso()) {
-            alert = new Alert(AlertType.INFORMATION, "Agendamento de Medicamento cadastrado com sucesso!");
+        if (resultado != null && resultado.foiSucesso()) {
+            alert = new Alert(AlertType.INFORMATION, "Agendamento de Medicamento cadastrada com sucesso!");
+            limparCampos();
         } else {
-            String mensagemErro = resultadoAgendamento != null ? resultadoAgendamento.getMsg() : "Erro ao agendar uma nova Medicamento!";
+            String mensagemErro = resultado != null ? resultado.getMsg() : "Erro ao cadastrar um novo Medicamento!";
             alert = new Alert(AlertType.ERROR, mensagemErro);
         }
         alert.showAndWait();
-        App.popScreen();
+        App.popScreen(); 
     }
     
     @FXML
@@ -108,6 +122,15 @@ public class AgendamentoMedicamento implements Initializable{
         }
     }
 
+    @FXML
+    private void limparCampos() {
+        labelTitulo.clear();       
+        labelData.setValue(null);  
+        labelHorario.clear();     
+        labelDetalhes.clear();     
+        caminhoFotoSelecionada = null; 
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         if (anterior != null) {
@@ -115,9 +138,20 @@ public class AgendamentoMedicamento implements Initializable{
             labelData.setValue(anterior.getData());
             labelHorario.setText(anterior.getHorario());
             labelDetalhes.setText(anterior.getDetalhes());
-
             btatualizar.setText("Atualizar");
-        }
+        } else {
+            limparCampos();
+    }
+}
+
+    @FXML
+    void botaoDia(ActionEvent event) {
+
+    }
+
+    @FXML
+    void botaoNoite(ActionEvent event) {
+
     }
 
     @FXML

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -15,12 +16,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="390.0" style="-fx-background-color: #E8FDFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.colecaoautiagenda.controllers.AgendamentoMedicamento">
    <children>
-      <Text layoutX="36.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Título:">
+      <Text layoutX="36.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Título:">
          <font>
             <Font name="Tahoma" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="labelTitulo" layoutX="30.0" layoutY="164.0" prefHeight="41.0" prefWidth="326.0" style="-fx-background-radius: 15px;">
+      <TextField fx:id="labelTitulo" layoutX="30.0" layoutY="140.0" prefHeight="41.0" prefWidth="326.0" style="-fx-background-radius: 15px;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -28,7 +29,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="labelDetalhes" layoutX="30.0" layoutY="515.0" prefHeight="41.0" prefWidth="326.0" style="-fx-background-radius: 15px;">
+      <TextField fx:id="labelDetalhes" layoutX="30.0" layoutY="487.0" prefHeight="41.0" prefWidth="326.0" style="-fx-background-radius: 15px;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -36,12 +37,12 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Text layoutX="30.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detalhes:">
+      <Text layoutX="30.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detalhes:">
          <font>
             <Font name="Tahoma" size="19.0" />
          </font>
       </Text>
-      <Button fx:id="btatualizar" layoutX="91.0" layoutY="666.0" mnemonicParsing="false" onAction="#botaoAgendarMedicamento" prefHeight="50.0" prefWidth="208.0" style="-fx-background-color: #03435F; -fx-background-radius: 15px;" text="Agendar" textFill="WHITE">
+      <Button fx:id="btatualizar" layoutX="91.0" layoutY="656.0" mnemonicParsing="false" onAction="#botaoAgendarMedicamento" prefHeight="50.0" prefWidth="208.0" style="-fx-background-color: #03435F; -fx-background-radius: 15px;" text="Agendar" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="20.0" />
          </font>
@@ -68,21 +69,21 @@
             </Text>
          </children>
       </Pane>
-      <Text layoutX="28.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Horário:">
+      <Text layoutX="28.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Horário:">
          <font>
             <Font name="Tahoma" size="19.0" />
          </font>
       </Text>
-      <Text layoutX="28.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data:">
+      <Text layoutX="28.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data:">
          <font>
             <Font name="Tahoma" size="19.0" />
          </font>
       </Text>
-      <DatePicker fx:id="labelData" layoutX="30.0" layoutY="288.0" prefHeight="41.0" prefWidth="326.0" style="-fx-font-size: 16px;">
+      <DatePicker fx:id="labelData" layoutX="30.0" layoutY="257.0" prefHeight="41.0" prefWidth="326.0" style="-fx-font-size: 16px;">
          <effect>
             <ColorAdjust brightness="-0.5" contrast="1.0" hue="-1.0" saturation="-1.0" />
          </effect></DatePicker>
-      <TextField fx:id="labelHorario" layoutX="32.0" layoutY="401.0" prefHeight="41.0" prefWidth="326.0" style="-fx-background-radius: 15px;">
+      <TextField fx:id="labelHorario" layoutX="32.0" layoutY="368.0" prefHeight="41.0" prefWidth="326.0" style="-fx-background-radius: 15px;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -90,35 +91,63 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Text layoutX="30.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tirar Foto:">
+      <Text layoutX="25.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tirar Foto:">
          <font>
             <Font name="Tahoma" size="19.0" />
          </font>
       </Text>
-      <Button fx:id="foto" layoutX="133.0" layoutY="577.0" mnemonicParsing="false" onAction="#botaoTirarFoto" prefHeight="63.0" prefWidth="76.0" style="-fx-background-color: #FFFF; -fx-background-radius: 15px;" />
-      <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="327.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="foto" layoutX="120.0" layoutY="561.0" mnemonicParsing="false" onAction="#botaoTirarFoto" prefHeight="63.0" prefWidth="76.0" style="-fx-background-color: #FFFF; -fx-background-radius: 15px;">
+         <effect>
+            <DropShadow height="6.65" radius="3.36" width="8.79" />
+         </effect></Button>
+      <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="327.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/relogio.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="34.0" layoutX="315.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="41.0" fitWidth="34.0" layoutX="315.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/abc.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="325.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="325.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/info.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="78.0" fitWidth="54.0" layoutX="144.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="78.0" fitWidth="54.0" layoutX="132.0" layoutY="566.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/camera.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="13.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="13.0" layoutY="17.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/icons8-arrow-30.png" />
+         </image>
+      </ImageView>
+      <ToggleButton fx:id="dia" layoutX="238.0" layoutY="585.0" mnemonicParsing="false" onAction="#botaoDia" prefHeight="37.0" prefWidth="68.0" style="-fx-background-color: #FFFF; -fx-background-radius: 15px;">
+         <effect>
+            <DropShadow height="6.645" radius="3.3587499999999997" width="8.79" />
+         </effect>
+      </ToggleButton>
+      <ToggleButton fx:id="noite" layoutX="308.0" layoutY="585.0" mnemonicParsing="false" onAction="#botaoNoite" prefHeight="37.0" prefWidth="68.0" style="-fx-background-color: #FFFF; -fx-background-radius: 15px;">
+         <effect>
+            <DropShadow height="6.65" radius="3.36" width="8.79" />
+         </effect>
+      </ToggleButton>
+      <Text layoutX="238.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Período:">
+         <font>
+            <Font name="Tahoma" size="19.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="255.0" layoutY="587.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icones/sol.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="327.0" layoutY="590.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icones/lua.png" />
          </image>
       </ImageView>
    </children>
