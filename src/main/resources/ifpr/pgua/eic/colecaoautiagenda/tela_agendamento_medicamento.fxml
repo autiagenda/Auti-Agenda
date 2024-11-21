@@ -95,7 +95,7 @@
             <Font name="Tahoma" size="19.0" />
          </font>
       </Text>
-      <Button layoutX="133.0" layoutY="577.0" mnemonicParsing="false" onAction="#botaoTirarFoto" prefHeight="63.0" prefWidth="76.0" style="-fx-background-color: #FFFF; -fx-background-radius: 15px;" />
+      <Button fx:id="foto" layoutX="133.0" layoutY="577.0" mnemonicParsing="false" onAction="#botaoTirarFoto" prefHeight="63.0" prefWidth="76.0" style="-fx-background-color: #FFFF; -fx-background-radius: 15px;" />
       <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="327.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icones/relogio.png" />

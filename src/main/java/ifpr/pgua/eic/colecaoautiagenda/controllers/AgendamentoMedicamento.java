@@ -2,12 +2,9 @@ package ifpr.pgua.eic.colecaoautiagenda.controllers;
 
 import java.io.File;
 import java.time.LocalDate;
-
 import com.github.hugoperlin.results.Resultado;
-
 import ifpr.pgua.eic.colecaoautiagenda.App;
 import ifpr.pgua.eic.colecaoautiagenda.repositories.RepositorioMedicamento;
-import ifpr.pgua.eic.colecaoautiagenda.repositories.RepositorioTarefaDiaria;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -32,7 +29,9 @@ public class AgendamentoMedicamento {
     private TextField labelTitulo;
 
     @FXML
-    private Button foto; //Verificar se devo colocar como label
+    private Button foto; 
+
+    private String caminhoFotoSelecionada;
 
     private RepositorioMedicamento repositorioMedicamento;
 
@@ -42,19 +41,18 @@ public class AgendamentoMedicamento {
 
     @FXML
     void botaoAgendarMedicamento(ActionEvent event) {
-      /*   String titulo = labelTitulo.getText();
+        String titulo = labelTitulo.getText();
         LocalDate data = labelData.getValue();
         String horario = labelHorario.getText();
         String detalhes = labelDetalhes.getText();
-       // String foto = foto.getText(); 
-
-        if (titulo.isEmpty() || data == null || horario.isEmpty() || detalhes.isEmpty()) {
+    
+        if (titulo.isEmpty() || data == null || horario.isEmpty() || detalhes.isEmpty() || caminhoFotoSelecionada == null) {
             new Alert(AlertType.ERROR, "Por favor, preencha todos os campos!").showAndWait();
             return;
         }
-
-        Resultado resultadoAgendamento = repositorioMedicamento.agendarMedicamento(titulo, data, horario, detalhes, foto);
-
+    
+        Resultado resultadoAgendamento = repositorioMedicamento.agendarMedicamento(titulo, data, horario, detalhes, caminhoFotoSelecionada);
+    
         Alert alert;
         if (resultadoAgendamento != null && resultadoAgendamento.foiSucesso()) {
             alert = new Alert(AlertType.INFORMATION, "Agendamento de Medicamento cadastrado com sucesso!");
@@ -63,13 +61,39 @@ public class AgendamentoMedicamento {
             alert = new Alert(AlertType.ERROR, mensagemErro);
         }
         alert.showAndWait();
-        App.popScreen();  
-   */ }
+        App.popScreen();
+    }
+    
 
     @FXML
     void botaoTirarFoto(ActionEvent event) {
-       // Verificar como pegar arquivos
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecione uma foto");
+    
+        fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Imagens", "*.png", "*.jpg", "*.jpeg"),
+            new FileChooser.ExtensionFilter("Todos os Arquivos", "*.*")
+        );
+    
+        File selectedFile = fileChooser.showOpenDialog(foto.getScene().getWindow());
+    
+        if (selectedFile != null) {
+            caminhoFotoSelecionada = selectedFile.getAbsolutePath();
+    
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Foto Selecionada");
+            alert.setHeaderText("Foto carregada com sucesso!");
+            alert.setContentText("Caminho: " + caminhoFotoSelecionada);
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Nenhum arquivo foi selecionado.");
+            alert.setContentText("Por favor, tente novamente.");
+            alert.showAndWait();
+        }
     }
+    
 
     @FXML
     void voltar(ActionEvent event) {
