@@ -1,12 +1,17 @@
 package ifpr.pgua.eic.colecaoautiagenda.controllers;
 
 import java.io.File;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
+
 import com.github.hugoperlin.results.Resultado;
 import ifpr.pgua.eic.colecaoautiagenda.App;
+import ifpr.pgua.eic.colecaoautiagenda.models.Medicamento;
 import ifpr.pgua.eic.colecaoautiagenda.repositories.RepositorioMedicamento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -14,7 +19,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
-public class AgendamentoMedicamento {
+public class AgendamentoMedicamento implements Initializable{
     
     @FXML
     private DatePicker labelData;
@@ -33,10 +38,20 @@ public class AgendamentoMedicamento {
 
     private String caminhoFotoSelecionada;
 
+    @FXML
+    private Button btatualizar;
+
+    private Medicamento anterior;
+
     private RepositorioMedicamento repositorioMedicamento;
 
     public AgendamentoMedicamento(RepositorioMedicamento repositorioMedicamento) {
         this.repositorioMedicamento = repositorioMedicamento;
+    }
+
+    public AgendamentoMedicamento(RepositorioMedicamento repositorioMedicamento, Medicamento anterior){
+        this.repositorioMedicamento = repositorioMedicamento;
+        this.anterior = anterior;
     }
 
     @FXML
@@ -64,7 +79,6 @@ public class AgendamentoMedicamento {
         App.popScreen();
     }
     
-
     @FXML
     void botaoTirarFoto(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -93,7 +107,18 @@ public class AgendamentoMedicamento {
             alert.showAndWait();
         }
     }
-    
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        if (anterior != null) {
+            labelTitulo.setText(anterior.getTitulo());
+            labelData.setValue(anterior.getData());
+            labelHorario.setText(anterior.getHorario());
+            labelDetalhes.setText(anterior.getDetalhes());
+
+            btatualizar.setText("Atualizar");
+        }
+    }
 
     @FXML
     void voltar(ActionEvent event) {

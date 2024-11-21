@@ -8,10 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import com.github.hugoperlin.results.Resultado;
-
-import ifpr.pgua.eic.colecaoautiagenda.models.TarefaDiaria;
 import ifpr.pgua.eic.colecaoautiagenda.models.Terapia;
 
 public class JDBCTerapiaDAO implements TerapiaDAO{

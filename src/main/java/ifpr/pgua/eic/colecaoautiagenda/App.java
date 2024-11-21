@@ -83,7 +83,7 @@ public class App extends BaseAppNavigator {
 
                 registraTela("MENUPRINCIPALLISTAR", new ScreenRegistryFXML(App.class, "tela_menu_principal_listar.fxml", o -> new MenuPrincipalListar()));
 
-                registraTela("LISTARMEDICAMENTOS", new ScreenRegistryFXML(App.class, "tela_listar_medicamento.fxml", o -> new ListarMedicamentos()));
+                registraTela("LISTARMEDICAMENTOS", new ScreenRegistryFXML(App.class, "tela_listar_medicamento.fxml", o -> new ListarMedicamentos(repositorioMedicamento)));
                 
                 registraTela("LISTARROTINADIARIA", new ScreenRegistryFXML(App.class, "tela_listar_rotina_diaria.fxml", o -> new ListarTarefasDiarias(repositorioTarefaDiaria)));
                 

@@ -74,4 +74,15 @@ public class Medicamento {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+    @Override
+    public String toString() {
+        return ""+
+                "Título: " + titulo + "\n" +
+                "Data Agendada: " + data + "\n" +
+                "Horário: " + horario + "\n" +
+                "Detalhes: " + detalhes + "\n" +
+                "Foto: " + foto + "\n" +
+                "";
+    }
 }
