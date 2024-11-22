@@ -50,7 +50,7 @@ public class ListarTerapias implements Initializable{
         if (tarefa != null) {
             if (resultadoOperacao.foiSucesso()) {
                 listaDeAgendamentos.getItems().remove(tarefa);
-                String mensagem = tipoOperacao.equals("concluir") ? "Parabéns! Terapia concluída com sucesso!" : "Ótimo! Lembrete de Terapia deletado com sucesso!";
+                String mensagem = tipoOperacao.equals("concluir") ? "Parabéns! Lembrete de Terapia concluída com sucesso!" : "Ótimo! Lembrete de Terapia deletado com sucesso!";
                 Alert alert = new Alert(AlertType.INFORMATION, mensagem);
                 alert.showAndWait();
             } else {

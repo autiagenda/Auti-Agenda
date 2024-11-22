@@ -30,18 +30,6 @@ public class RepositorioMedicamento {
             return Resultado.erro("Informe o horário do seu agendamento!");
         }
 
-        if (detalhes == null || detalhes.isEmpty() || detalhes.isBlank()) {
-            return Resultado.erro("Informe os detalhes do seu agendamento!");
-        }
-
-        if (foto == null || foto.isEmpty() || foto.isBlank()) {
-            return Resultado.erro("Foto não selecionada! Tente novamente");
-        }
-
-        if (periodo == null || periodo.isEmpty() || periodo.isBlank()) {
-            return Resultado.erro("Período não selecionado! Tente novamente");
-        }
-
         Medicamento novaMedicamento = new Medicamento(titulo, data, horario, detalhes, foto, periodo);
         return dao.criar(novaMedicamento);
     } 

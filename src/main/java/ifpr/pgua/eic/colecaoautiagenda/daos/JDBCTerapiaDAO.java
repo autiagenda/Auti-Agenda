@@ -36,7 +36,7 @@ public class JDBCTerapiaDAO implements TerapiaDAO{
 
                 terapia.setId(id);
 
-                return Resultado.sucesso("Agendamento de Terapia realizada com sucesso!", terapia);
+                return Resultado.sucesso("Agendamento de Terapia realizado com sucesso!", terapia);
             }
             return Resultado.erro("O agendamento de Terapia não deu certo...");
         } catch (SQLException e) {

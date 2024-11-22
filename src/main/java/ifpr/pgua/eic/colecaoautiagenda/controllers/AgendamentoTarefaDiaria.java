@@ -37,6 +37,8 @@ public class AgendamentoTarefaDiaria implements Initializable{
 
     private TarefaDiaria anterior;
 
+    private boolean agendamentoFeito = false; 
+
     private RepositorioTarefaDiaria repositorioTarefaDiaria;
 
     public AgendamentoTarefaDiaria(RepositorioTarefaDiaria repositorioTarefaDiaria) {
@@ -53,10 +55,10 @@ public class AgendamentoTarefaDiaria implements Initializable{
         String titulo = labelTitulo.getText();
         LocalDate data = labelData.getValue();
         String horario = labelHorario.getText();
-        String detalhes = labelDetalhes.getText();
-    
-        if (titulo.isEmpty() || data == null || horario.isEmpty() || detalhes.isEmpty()) {
-            new Alert(AlertType.ERROR, "Por favor, preencha todos os campos!").showAndWait();
+        String detalhes = labelDetalhes.getText(); 
+        
+        if (titulo.isEmpty() || data == null || horario.isEmpty()) {
+            new Alert(AlertType.ERROR, "Por favor, preencha os campos!").showAndWait();
             return;
         }
     
@@ -64,21 +66,23 @@ public class AgendamentoTarefaDiaria implements Initializable{
     
         if (anterior == null) {
             resultado = repositorioTarefaDiaria.agendarTarefaDiaria(titulo, data, horario, detalhes);
+            agendamentoFeito = true;
         } else {
             resultado = repositorioTarefaDiaria.editarAgendamentoTarefaDiaria(anterior.getId(), titulo, data, horario, detalhes);
+            agendamentoFeito = false;
         }
     
         Alert alert;
         if (resultado != null && resultado.foiSucesso()) {
-            alert = new Alert(AlertType.INFORMATION, "Agendamento de Tarefa Diária cadastrada com sucesso!");
+            alert = new Alert(AlertType.INFORMATION, "Agendamento de Tarefa Diária cadastrado com sucesso!");
             limparCampos();
         } else {
             String mensagemErro = resultado != null ? resultado.getMsg() : "Erro ao cadastrar uma nova Tarefa Diária!";
             alert = new Alert(AlertType.ERROR, mensagemErro);
         }
         alert.showAndWait();
-        App.popScreen();  // Retorna à tela anterior após o cadastro, arrumar esta parte e verificar sobre data (coluna diz que está faltante)
     }
+    
 
     @FXML
     private void limparCampos() {
@@ -89,21 +93,62 @@ public class AgendamentoTarefaDiaria implements Initializable{
     }
     
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
+    public void initialize(URL url, ResourceBundle arg1) {
         if (anterior != null) {
             labelTitulo.setText(anterior.getTitulo());
             labelData.setValue(anterior.getData());
             labelHorario.setText(anterior.getHorario());
             labelDetalhes.setText(anterior.getDetalhes());
-
+    
             btatualizar.setText("Atualizar");
         } else {
             limparCampos();
+        }
+    
+        labelHorario.textProperty().addListener((campoHora, horaAnterior, horaAtual) -> {
+            if (!horaAtual.matches("\\d{0,2}:?\\d{0,2}")) {
+                labelHorario.setText(horaAnterior);
+                return;
+            }
+
+            if (horaAtual.length() == 2 && !horaAtual.contains(":")) {
+                labelHorario.setText(horaAtual + ":");
+            }
+
+            if (horaAtual.length() > 5) {
+                labelHorario.setText(horaAnterior);
+            }
+        });
+
+        labelHorario.focusedProperty().addListener((campoHora, horaAnterior, horaAtual) -> {
+            if (!horaAtual) { 
+                String input = labelHorario.getText();
+
+                if (input.matches("^\\d{2}:\\d{2}$") || input.isEmpty()) {
+                    return;
+                }
+
+                if (input.matches("^\\d{1,2}$")) {
+                    labelHorario.setText(String.format("%02d:00", Integer.parseInt(input)));
+                }
+
+                if (input.matches("^\\d{2}:$")) {
+                    labelHorario.setText(input + "00");
+                }
+
+                if (input.matches("^\\d{2}:\\d{1}$")) {
+                    labelHorario.setText(input + "0");
+                }
+            }
+        });
     }
-}
     
     @FXML
     void voltar(ActionEvent event) {
-        App.pushScreen("MENUPRINCIPAL");
+        if (agendamentoFeito) {
+            App.pushScreen("MENUPRINCIPAL"); 
+        } else {
+            App.pushScreen("LISTARROTINADIARIA");  
+        }
     }
 }

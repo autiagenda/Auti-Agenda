@@ -38,7 +38,7 @@ public class JDBCMedicamentoDAO implements MedicamentoDAO{
 
                 medicamento.setId(id);
 
-                return Resultado.sucesso("Agendamento de Medicamento realizada com sucesso!", medicamento);
+                return Resultado.sucesso("Agendamento de Medicamento realizado com sucesso!", medicamento);
             }
             return Resultado.erro("O agendamento de Medicamento não deu certo...");
         } catch (SQLException e) {

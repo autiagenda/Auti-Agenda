@@ -31,10 +31,6 @@ public class RepositorioTerapia {
             return Resultado.erro("Informe o horário do seu agendamento!");
         }
 
-        if (detalhes == null || detalhes.isEmpty() || detalhes.isBlank()) {
-            return Resultado.erro("Informe os detalhes do seu agendamento!");
-        }
-
         Terapia novaTerapia = new Terapia(titulo, data, horario, detalhes);
         return dao.criar(novaTerapia);
     } 

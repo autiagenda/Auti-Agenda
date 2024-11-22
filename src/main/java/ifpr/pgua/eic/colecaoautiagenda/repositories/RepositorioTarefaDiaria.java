@@ -33,10 +33,6 @@ public class RepositorioTarefaDiaria {
             return Resultado.erro("Informe o horário do seu agendamento!");
         }
 
-        if (detalhes == null || detalhes.isEmpty() || detalhes.isBlank()) {
-            return Resultado.erro("Informe os detalhes do seu agendamento!");
-        }
-
         TarefaDiaria novaTarefaDiaria = new TarefaDiaria(titulo, data, horario, detalhes);
         return dao.criar(novaTarefaDiaria);
     } 

@@ -52,6 +52,8 @@ public class AgendamentoMedicamento implements Initializable{
 
     private String periodo;
 
+    private boolean agendamentoFeito = false; 
+
     private RepositorioMedicamento repositorioMedicamento;
 
     public AgendamentoMedicamento(RepositorioMedicamento repositorioMedicamento) {
@@ -70,7 +72,7 @@ public class AgendamentoMedicamento implements Initializable{
         String horario = labelHorario.getText();
         String detalhes = labelDetalhes.getText();
     
-        if (titulo.isEmpty() || data == null || horario.isEmpty() || detalhes.isEmpty() || caminhoFotoSelecionada == null || periodo == null) {
+        if (titulo.isEmpty() || data == null || horario.isEmpty()) {
             new Alert(AlertType.ERROR, "Por favor, preencha todos os campos!").showAndWait();
             return;
         }
@@ -79,20 +81,21 @@ public class AgendamentoMedicamento implements Initializable{
     
         if (anterior == null) {
             resultado = repositorioMedicamento.agendarMedicamento(titulo, data, horario, detalhes, caminhoFotoSelecionada, periodo);
+            agendamentoFeito = true;
         } else {
             resultado = repositorioMedicamento.editarAgendamentoMedicamento(anterior.getId(), titulo, data, horario, detalhes, caminhoFotoSelecionada, periodo);
+            agendamentoFeito = false;
         }
     
         Alert alert;
         if (resultado != null && resultado.foiSucesso()) {
-            alert = new Alert(AlertType.INFORMATION, "Agendamento de Medicamento cadastrada com sucesso!");
+            alert = new Alert(AlertType.INFORMATION, "Agendamento de Medicamento cadastrado com sucesso!");
             limparCampos();
         } else {
             String mensagemErro = resultado != null ? resultado.getMsg() : "Erro ao cadastrar um novo Medicamento!";
             alert = new Alert(AlertType.ERROR, mensagemErro);
         }
         alert.showAndWait();
-        App.popScreen(); 
     }
     
     @FXML
@@ -143,8 +146,45 @@ public class AgendamentoMedicamento implements Initializable{
             btatualizar.setText("Atualizar");
         } else {
             limparCampos();
+        }
+
+        labelHorario.textProperty().addListener((campoHora, horaAnterior, horaAtual) -> {
+            if (!horaAtual.matches("\\d{0,2}:?\\d{0,2}")) {
+                labelHorario.setText(horaAnterior);
+                return;
+            }
+
+            if (horaAtual.length() == 2 && !horaAtual.contains(":")) {
+                labelHorario.setText(horaAtual + ":");
+            }
+
+            if (horaAtual.length() > 5) {
+                labelHorario.setText(horaAnterior);
+            }
+        });
+
+        labelHorario.focusedProperty().addListener((campoHora, horaAnterior, horaAtual) -> {
+            if (!horaAtual) { 
+                String input = labelHorario.getText();
+
+                if (input.matches("^\\d{2}:\\d{2}$") || input.isEmpty()) {
+                    return;
+                }
+
+                if (input.matches("^\\d{1,2}$")) {
+                    labelHorario.setText(String.format("%02d:00", Integer.parseInt(input)));
+                }
+
+                if (input.matches("^\\d{2}:$")) {
+                    labelHorario.setText(input + "00");
+                }
+
+                if (input.matches("^\\d{2}:\\d{1}$")) {
+                    labelHorario.setText(input + "0");
+                }
+            }
+        });
     }
-}
 
     @FXML
     void botaoDia(ActionEvent event) {
@@ -162,6 +202,10 @@ public class AgendamentoMedicamento implements Initializable{
 
     @FXML
     void voltar(ActionEvent event) {
-        App.pushScreen("MENUPRINCIPAL");
+        if (agendamentoFeito) {
+            App.pushScreen("MENUPRINCIPAL"); 
+        } else {
+            App.pushScreen("LISTARMEDICAMENTOS");  
+        }
     }
 }

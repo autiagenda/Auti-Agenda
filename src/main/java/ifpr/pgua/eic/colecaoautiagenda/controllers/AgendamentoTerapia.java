@@ -37,6 +37,8 @@ public class AgendamentoTerapia implements Initializable{
 
     private Terapia anterior;
 
+    private boolean agendamentoFeito = false; 
+
     private RepositorioTerapia repositorioTerapia;
 
     public AgendamentoTerapia(RepositorioTerapia repositorioTerapia) {
@@ -55,7 +57,7 @@ public class AgendamentoTerapia implements Initializable{
         String horario = labelHorario.getText();
         String detalhes = labelDetalhes.getText();
 
-        if (titulo.isEmpty() || data == null || horario.isEmpty() || detalhes.isEmpty()) {
+        if (titulo.isEmpty() || data == null || horario.isEmpty()) {
             new Alert(AlertType.ERROR, "Por favor, preencha todos os campos!").showAndWait();
             return;
         }
@@ -64,8 +66,10 @@ public class AgendamentoTerapia implements Initializable{
     
         if (anterior == null) {
             resultado = repositorioTerapia.agendarTerapia(titulo, data, horario, detalhes);
+            agendamentoFeito = true;
         } else {
             resultado = repositorioTerapia.editarAgendamentoTerapia(anterior.getId(), titulo, data, horario, detalhes);
+            agendamentoFeito = false; 
         }
     
         Alert alert;
@@ -77,7 +81,6 @@ public class AgendamentoTerapia implements Initializable{
             alert = new Alert(AlertType.ERROR, mensagemErro);
         }
         alert.showAndWait();
-        App.popScreen();  // Retorna à tela anterior após o cadastro, arrumar esta parte e verificar sobre data (coluna diz que está faltante)
     }
 
     @FXML
@@ -99,11 +102,52 @@ public class AgendamentoTerapia implements Initializable{
             btatualizar.setText("Atualizar");
         }else {
             limparCampos();
+        }
+
+        labelHorario.textProperty().addListener((campoHora, horaAnterior, horaAtual) -> {
+            if (!horaAtual.matches("\\d{0,2}:?\\d{0,2}")) {
+                labelHorario.setText(horaAnterior);
+                return;
+            }
+
+            if (horaAtual.length() == 2 && !horaAtual.contains(":")) {
+                labelHorario.setText(horaAtual + ":");
+            }
+
+            if (horaAtual.length() > 5) {
+                labelHorario.setText(horaAnterior);
+            }
+        });
+
+        labelHorario.focusedProperty().addListener((campoHora, horaAnterior, horaAtual) -> {
+            if (!horaAtual) { 
+                String input = labelHorario.getText();
+
+                if (input.matches("^\\d{2}:\\d{2}$") || input.isEmpty()) {
+                    return;
+                }
+
+                if (input.matches("^\\d{1,2}$")) {
+                    labelHorario.setText(String.format("%02d:00", Integer.parseInt(input)));
+                }
+
+                if (input.matches("^\\d{2}:$")) {
+                    labelHorario.setText(input + "00");
+                }
+
+                if (input.matches("^\\d{2}:\\d{1}$")) {
+                    labelHorario.setText(input + "0");
+                }
+            }
+        });
     }
-}
 
     @FXML
     void voltar(ActionEvent event) {
-        App.pushScreen("MENUPRINCIPAL");
+        if (agendamentoFeito) {
+            App.pushScreen("MENUPRINCIPAL"); 
+        } else {
+            App.pushScreen("LISTARTERAPIAS");  
+        }
     }
 }
