@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CadastroUsuario {
     @FXML
@@ -25,6 +27,13 @@ public class CadastroUsuario {
     public CadastroUsuario(RepositorioUsuario repositorio) {
         this.repositorio = repositorio;
     }
+
+    private boolean validarEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";  
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
     
     @FXML
     void botaoCadastreSeUsuario(ActionEvent event) {
@@ -37,6 +46,16 @@ public class CadastroUsuario {
             return;
         }
 
+        if (!validarEmail(email)) {
+            new Alert(AlertType.ERROR, "O e-mail inserido é invalido... Tente novamente").showAndWait();
+            return;
+        }
+
+        if (senha.length() < 6) {
+            new Alert(AlertType.ERROR, "A senha deve ter no mínimo 6 caracteres! Tente novamente").showAndWait();
+            return;
+        }
+        
         Resultado resultadoCadastro = repositorio.cadastrarUsuario(nome, email, senha);
 
         Alert alert;

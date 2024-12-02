@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CadastroResponsavel {
     
@@ -24,6 +26,13 @@ public class CadastroResponsavel {
         this.repositorio = repositorio;
     }
 
+    private boolean validarEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";  
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
     @FXML
     void botaoCadastarResponsavel(ActionEvent event) {
         String nome = labelNomeResponsavel.getText();
@@ -31,6 +40,11 @@ public class CadastroResponsavel {
 
         if (nome.isEmpty() || email.isEmpty()) {
             new Alert(AlertType.ERROR, "Por favor, preencha todos os campos!").showAndWait();
+            return;
+        }
+
+        if (!validarEmail(email)) {
+            new Alert(AlertType.ERROR, "O e-mail inserido é invalido... Tente novamente").showAndWait();
             return;
         }
 
