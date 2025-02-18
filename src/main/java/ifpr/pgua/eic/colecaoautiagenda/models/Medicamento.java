@@ -94,7 +94,7 @@ public class Medicamento {
                 "Horário: " + horario + "\n" +
                 "Detalhes: " + detalhes + "\n" +
                 "Foto: " + foto + "\n" +
-                "Período: " + foto + "\n" +
+                "Período: " + periodo + "\n" +
                 "";
     }
 }
